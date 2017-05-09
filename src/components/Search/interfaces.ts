@@ -1,0 +1,39 @@
+import { Stream } from 'xstream';
+import { DOMSource, VNode } from '@cycle/dom';
+import { StateSource } from 'cycle-onionify';
+import { ISelectState } from '../Form/Select';
+
+export interface ISearchState<T> extends ISelectState<T> {
+  payload: string;
+  isListVisible: boolean;
+  inputting: boolean;
+  currentIndex: number;
+  hoverIndex: number;
+  listFocused?: boolean;
+  inputFocused?: boolean;
+  filteredOptions: T[];
+  placeholder?: string;
+  contentFn?: (option: T) => any;
+}
+
+export interface ISources<T> {
+  DOM: DOMSource;
+  // HTTP: HTTPSource;
+  onion: StateSource<ISearchState<T>>;
+}
+
+export interface ISinks<T> {
+  DOM: Stream<VNode>;
+  // HTTP: Stream<RequestInput>;
+  onion: Stream<Reducer<T>>;
+}
+
+export type Reducer<T> = (prev?: ISearchState<T>) => ISearchState<T>;
+
+
+export type IAction = {
+  payload?: string;
+  type: string;
+}
+
+

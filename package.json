@@ -1,0 +1,24 @@
+{
+  "name": "cycle-bulma",
+  "version": "0.1.0",
+  "description": "Cycle.js bulma UI components",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prelib": "mkdir -p lib",
+    "lib": "tsc",
+    "prepublish": "npm run lib"
+  },
+  "keywords": [
+    "cyclejs",
+    "bulma"
+  ],
+  "author": "toan.nguyen",
+  "license": "MIT",
+  "dependencies": {
+    "@cycle/dom": "^17.1.0",
+    "@cycle/isolate": "^2.1.0",
+    "cycle-onionify": "^3.2.0",
+    "xstream": "^10.7.0"
+  }
+}
