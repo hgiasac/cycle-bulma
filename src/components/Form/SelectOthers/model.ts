@@ -24,24 +24,33 @@ export default function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
 
     if (typeof prev !== 'object') {
       state.payload = prev;
-    } else {
-      Object.assign(state, prev);
-      if (state.validators && state.validators.length > 0) {
-        state.validators = state.validators.map(v => ({
-          ...v,
-          attributeName: state.attributeName
-        }));
-      }
+      return state;
     }
 
-    if (state.payload && state.validators && state.validators.length) {
-      const validationResult = validate(state.validators, state.payload);
+    if (!prev.otherValue) {
+      prev.otherValue = state.otherValue;
+    }
+
+    if (!prev.filterFn) {
+      prev.filterFn = defaultArrayFilter;
+    }
+
+    if (prev.validators && prev.validators.length > 0) {
+      prev.validators = prev.validators.map(v => ({
+        ...v,
+        attributeName: prev.attributeName
+      }));
+    }
+
+    if (prev.isValid === undefined && prev.payload && prev.validators && prev.validators.length > 0) {
+      const validationResult = validate(prev.validators, prev.payload);
       return {
-        ...state,
+        ...prev,
         ...validationResult,
       }
     }
-    return Object.assign(state, prev);
+
+    return prev;
   });
 
   const selectReducer$ = action$
@@ -53,7 +62,7 @@ export default function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
       let payload = ev.payload;
       const selected = defaultFilter(ev.payload, prev);
 
-      const isOthers = ev.payload === prev.otherValue;
+      const isOthers = selected && selected[prev.valueKey] === prev.otherValue;
 
       if (isOthers) {
         isValid = false;
