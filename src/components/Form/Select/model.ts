@@ -24,17 +24,30 @@ export function defaultFilter<T>(payload: string, state: ISelectState<T>): T | s
   return null;
 }
 
+export function newSelectState<T>(options?: ISelectState<T>): ISelectState<T> {
+  const state: ISelectState<T> = {
+    attributeName: '',
+    payload: '',
+    selected: null,
+    options: [],
+    filterFn: defaultArrayFilter,
+  };
+
+  if (options) {
+    return {
+      ...state,
+      ...options,
+    };
+  }
+
+  return state;
+}
+
 export default function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
 
   const defaultReducer$ = xs.of(function(prev: ISelectState<T>): ISelectState<T> {
 
-    const state: ISelectState<T> = {
-      attributeName: '',
-      payload: '',
-      selected: null,
-      options: [],
-      filterFn: defaultArrayFilter,
-    };
+    const state: ISelectState<T> = newSelectState();
 
     if (!prev) {
       return state;

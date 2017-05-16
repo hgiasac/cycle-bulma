@@ -1,14 +1,10 @@
-import { ISources, ISinks, IState } from './interfaces';
+import { ISources, ISinks } from './interfaces';
 import intent from './intent';
-import model, { newInputState } from './model';
+import model from './model';
 import view from './view';
 
-export {
-  newInputState,
-  IState as IInputState
-};
 
-export default function Input(sources: ISources): ISinks {
+export default function Textarea(sources: ISources): ISinks {
 
   const state$ = sources.onion.state$;
   const action$ = intent(sources.DOM);

@@ -1,7 +1,7 @@
 import { Stream } from 'xstream';
 import { VNode } from '@cycle/dom';
 import { IState } from './interfaces';
-import { input } from '../../../dom';
+import { textarea } from '../../../dom';
 
 export default function view(state$: Stream<IState>): Stream<VNode> {
 
@@ -9,16 +9,14 @@ export default function view(state$: Stream<IState>): Stream<VNode> {
     if (!state) {
       return null;
     }
-
-    return input('', {
-      attrs: {
+    return textarea('', {
+      props: {
         value: state.payload,
         disabled: state.isDisabled,
-        placeholder: state.placeholder,
       }
     }, {
       ...state
-     })  as VNode;
+      }) as VNode;
   });
 
 }

@@ -1,49 +1,45 @@
 import xs, { Stream } from 'xstream';
 import { div, button, VNode } from '@cycle/dom';
-import { View, ControlView } from './interfaces';
+import { Layout, IButtonProperties } from './interfaces';
 
-function renderButtons(state) {
+export function renderButtons(properties: IButtonProperties): VNode {
   let buttons = [
-    button('.button.is-primary.submit' + (state.submitClass || ''), {
+    button('.button.is-primary.submit' + (properties.submitClass || ''), {
       props: {
-        disabled: state.isValid !== true
+        disabled: properties.isValid !== true
       }
-    }, state.submitText || 'Submit'),
+    }, properties.submitText || 'Submit'),
   ];
 
-  if (state.canCancel) {
-    const cancelDom = button('.button.cancel' + (state.cancelClass || ''), [
-        state.cancelText || 'Cancel'
+  if (properties.canCancel) {
+    const cancelDom = button('.button.cancel' + (properties.cancelClass || ''), [
+      properties.cancelText || 'Cancel'
     ]);
 
-    if (state.cancelFirst) {
+    if (properties.cancelFirst) {
       buttons.unshift(cancelDom);
     } else {
       buttons.push(cancelDom);
     }
   }
 
-  return div('.field' + (state.canCancel ? '.is-group' : ''), buttons)
+  return div('.field' + (properties.canCancel ? '.is-group' : ''), buttons)
 }
 
 export default function view<T>(state$: Stream<T>, controlDOM$: Stream<VNode>[],
-  layoutView?: View<T>, controlView?: ControlView<T>): Stream<VNode> {
+  layoutView?: Layout<T>): Stream<VNode> {
 
   return xs.combine(state$, ...controlDOM$)
     .map((items) => {
       const state = items[0];
       const doms = items.slice(1);
-      const controlDom = controlView ? [controlView(state, doms)] : (doms);
 
-      const formVDom = div('.form', [
-        ...controlDom,
+      if (layoutView) {
+        return layoutView(state, doms);
+      }
+      return div('.form' + (state.className || ''), [
+        ...doms,
         renderButtons(state),
       ]);
-
-      if (!layoutView) {
-        return formVDom;
-      }
-
-      return layoutView(state, formVDom);
     });
 }

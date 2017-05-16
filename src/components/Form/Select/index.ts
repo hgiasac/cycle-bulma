@@ -1,6 +1,6 @@
 import { ISelectState, ISources, ISinks } from './interfaces';
 import intent from './intent';
-import model, { defaultFilter, defaultArrayFilter } from './model';
+import model, { defaultFilter, defaultArrayFilter, newSelectState } from './model';
 import view from './view';
 
 
@@ -22,4 +22,5 @@ export {
   defaultFilter,
   defaultArrayFilter,
   ISelectState,
+  newSelectState,
 }

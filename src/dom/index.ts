@@ -136,7 +136,7 @@ function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): 
 
   }
 
-  return (attrs.hasContainer && !attrs.isGrouped) ? div('.field' + (attrs.containerClass || ''), vnodes) : vnodes;
+  return (attrs.hasContainer && !attrs.isGrouped) ? div((attrs.containerClass || ''), vnodes) : vnodes;
 
 }
 

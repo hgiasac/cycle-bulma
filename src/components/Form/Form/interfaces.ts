@@ -1,5 +1,6 @@
 import { Stream } from 'xstream';
 import { DOMSource, VNode } from '@cycle/dom';
+import { HTTPSource, RequestInput } from '@cycle/http';
 import { StateSource } from 'cycle-onionify';
 import { IValidationRule } from '../../../validator';
 
@@ -8,13 +9,21 @@ export interface IAction {
   type: string;
 }
 
-export type View<T> = (state: T, vdom: VNode) => VNode;
-export type ControlView<T> = (state: T, controlDoms: VNode[]) => VNode;
-
+export type Layout<T> = (state: T, controlDoms: VNode[]) => VNode;
 export interface IProperties<T> {
   components: any;
-  view?: View<T>;
-  controlView?: ControlView<T>;
+  layout?: Layout<T>;
+}
+
+export interface IButtonProperties {
+
+  isValid?: boolean;
+  submitText?: string;
+  submitClass?: string;
+  canCancel?: boolean;
+  cancelFirst?: boolean;
+  cancelText?: string;
+  cancelClass?: string;
 }
 
 export interface IControlState {
@@ -27,6 +36,7 @@ export interface IControlState {
 export interface IFormState {
   isValid?: boolean;
   invalidAttribute: string;
+  className?: string;
   submitText?: string;
   submitClass?: string;
   canCancel?: boolean;
@@ -41,9 +51,18 @@ export type Reducer = (state: IFormState) => IFormState;
 export interface ISources {
   DOM: DOMSource;
   onion: StateSource<any>;
+  HTTP?: HTTPSource;
+}
+
+export interface ItemSinks {
+  DOM: Stream<VNode>;
+  onion: Stream<Reducer>;
+  HTTP?: Stream<RequestInput>;
 }
 
 export interface ISinks {
   DOM: Stream<VNode>;
   onion: Stream<Reducer>;
+  controlSinks: ItemSinks[];
+  HTTP?: Stream<RequestInput>;
 }

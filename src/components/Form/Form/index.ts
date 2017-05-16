@@ -1,13 +1,19 @@
 import xs, { Stream } from 'xstream';
+import { RequestInput } from '@cycle/http';
 import isolate from '@cycle/isolate';
 import { Lens } from 'cycle-onionify';
 import { IFormState, IControlState, ControlSinks, IProperties, Reducer, ISources, ISinks } from './interfaces';
-import view from './view';
+import view, { renderButtons } from './view';
 
 function createControlSinks(sources: ISources, attributeName: string, control: ControlSinks) {
 
   const controlLens: Lens<IFormState, IControlState> = {
-    get: state => state[attributeName],
+    get: state => {
+      if (state[attributeName] && !state[attributeName].attributeName) {
+        state[attributeName].attributeName = attributeName;
+      }
+      return state[attributeName];
+    },
     set: (state, childState) => {
 
       const newState = {
@@ -56,11 +62,15 @@ function Form<T>(sources: ISources, properties: IProperties<T>): ISinks {
   const reducer$ = xs.merge(
     ...controlSinks.map(s => s.onion),
   ) as Stream<Reducer>;
-  const vdom$ = view(state$, controlSinks.map(s => s.DOM), properties.view, properties.controlView);
+  const http$ = controlSinks.filter(s => s.HTTP)
+    .map(s => s.HTTP);
+  const vdom$ = view(state$, controlSinks.map(s => s.DOM), properties.layout);
 
   return {
     DOM: vdom$,
     onion: reducer$,
+    HTTP: http$ as any as Stream<RequestInput>,
+    controlSinks: controlSinks,
   }
 }
 
@@ -69,5 +79,6 @@ export {
   createControlSinks,
   IProperties,
   IFormState,
-  Form
+  Form,
+  renderButtons
 }

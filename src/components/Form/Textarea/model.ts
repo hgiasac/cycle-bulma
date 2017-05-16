@@ -2,26 +2,14 @@ import xs, { Stream } from 'xstream';
 import { IAction, IState, Reducer } from './interfaces';
 import { validate } from '../../../validator';
 
-export function newInputState(options?: IState): IState {
-  const state = {
-    attributeName: '',
-    payload: '',
-  };
-
-  if (options) {
-    return {
-      ...options,
-      ...state,
-    };
-  }
-
-  return state;
-}
 export default function model(action$: Stream<IAction>): Stream<Reducer> {
 
   const defaultReducer$ = xs.of(function (prev: IState): IState {
 
-    const state: IState = newInputState();
+    const state: IState = {
+      attributeName: '',
+      payload: '',
+    };
 
     if (!prev) {
       return state;

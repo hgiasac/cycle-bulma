@@ -12,7 +12,6 @@ export interface IAction {
 export interface IState extends IInputAttributeEx {
   attributeName: string;
   payload: any;
-  placeholder?: string;
   isDisabled?: boolean;
   validators?: IValidationRule[];
 };
