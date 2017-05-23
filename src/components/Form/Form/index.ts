@@ -62,7 +62,7 @@ function Form<T>(sources: ISources<T>, properties: IProperties<T>): ISinks<T> {
     .map((s) => s.HTTP);
 
   const http$ = http$$ && http$$.length > 0 ? xs.merge(...http$$) : null;
-  const vdom$ = view(state$, controlSinks.map((s) => s.DOM), properties.layout);
+  const vdom$ = view(state$, controlSinks.map((s) => s.DOM), properties);
 
   return {
     controlSinks,

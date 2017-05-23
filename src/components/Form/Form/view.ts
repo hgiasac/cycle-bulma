@@ -1,6 +1,6 @@
 import { button, div, VNode } from '@cycle/dom';
 import xs, { Stream } from 'xstream';
-import { ControlComponent, IButtonProperties, IDOMDictionary, IProperties, Layout } from './interfaces';
+import { ControlComponent, IButtonProperties, IDOMDictionary, IProperties } from './interfaces';
 
 export function renderButtons(properties: IButtonProperties): VNode {
   const buttons = [
@@ -34,16 +34,16 @@ function viewDictionary(components: { [key: string]: ControlComponent<any> } , c
 }
 
 export default function view<T>(state$: Stream<T>, controlDOM$: Array<Stream<VNode>>,
-                                layoutView?: Layout<T>, properties?: IProperties<T>): Stream<VNode> {
+                                properties?: IProperties<T>): Stream<VNode> {
 
   return xs.combine(state$, ...controlDOM$)
     .map((items) => {
       const state = items[0];
       const doms = items.slice(1);
 
-      if (layoutView) {
+      if (properties.layout) {
         const vdomDict = viewDictionary(properties.components, doms);
-        return layoutView(state, vdomDict);
+        return properties.layout(state, vdomDict);
       }
       return div('.form' + (state.className || ''), [
         ...doms,
