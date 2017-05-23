@@ -1,6 +1,6 @@
 import { button, div, VNode } from '@cycle/dom';
 import xs, { Stream } from 'xstream';
-import { IButtonProperties, Layout } from './interfaces';
+import { ControlComponent, IButtonProperties, IDOMDictionary, IProperties, Layout } from './interfaces';
 
 export function renderButtons(properties: IButtonProperties): VNode {
   const buttons = [
@@ -26,7 +26,15 @@ export function renderButtons(properties: IButtonProperties): VNode {
   return div('.field' + (properties.canCancel ? '.is-group' : ''), buttons);
 }
 
-export default function view<T>(state$: Stream<T>, controlDOM$: Array<Stream<VNode>>, layoutView?: Layout<T>): Stream<VNode> {
+function viewDictionary(components: { [key: string]: ControlComponent<any> } , controlDOM: VNode[]): IDOMDictionary {
+  return Object.keys(components).reduce((a, k, i) => {
+    a[k] = controlDOM[i];
+    return a;
+  }, {});
+}
+
+export default function view<T>(state$: Stream<T>, controlDOM$: Array<Stream<VNode>>,
+                                layoutView?: Layout<T>, properties?: IProperties<T>): Stream<VNode> {
 
   return xs.combine(state$, ...controlDOM$)
     .map((items) => {
@@ -34,7 +42,8 @@ export default function view<T>(state$: Stream<T>, controlDOM$: Array<Stream<VNo
       const doms = items.slice(1);
 
       if (layoutView) {
-        return layoutView(state, doms);
+        const vdomDict = viewDictionary(properties.components, doms);
+        return layoutView(state, vdomDict);
       }
       return div('.form' + (state.className || ''), [
         ...doms,

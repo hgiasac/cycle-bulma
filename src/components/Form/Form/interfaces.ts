@@ -9,9 +9,13 @@ export interface IAction {
   type: string;
 }
 
-export type Layout<T> = (state: T, controlDoms: VNode[]) => VNode;
+export interface IDOMDictionary {
+  [key: string]: VNode;
+}
+
+export type Layout<T> = (state: T, controlDoms: IDOMDictionary) => VNode;
 export interface IProperties<T> {
-  components: any;
+  components: { [key: string]: any };
   layout?: Layout<T>;
 }
 
