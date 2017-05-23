@@ -6,6 +6,8 @@
   "types": "lib/index.d.ts",
   "typings": "lib/index.d.ts",
   "scripts": {
+    "build": "tsc",
+    "install": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prelib": "mkdir -p lib",
     "lib": "tsc",
