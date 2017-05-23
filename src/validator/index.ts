@@ -6,7 +6,7 @@ function validate(validators: IValidationRule[], payload: any): IValidationResul
   let errorMessage = '';
   if (validators && validators.length > 0) {
 
-    isValid = validators.every(v => {
+    isValid = validators.every((v) => {
       if (!v.validate(payload)) {
         errorMessage = v.message;
         return false;
@@ -16,9 +16,9 @@ function validate(validators: IValidationRule[], payload: any): IValidationResul
   }
 
   return {
+    errorMessage,
     isValid,
-    errorMessage
-  }
+  };
 }
 
 function RequiredValidator(options?: IValidatorOptions): IValidationRule {
@@ -35,13 +35,13 @@ function RequiredValidator(options?: IValidatorOptions): IValidationRule {
     }
   }
   return {
-    attributeName: attributeName,
+    attributeName,
     type: 'required',
-    message: message,
-    validate: function (payload: any): boolean {
+    message,
+    validate: (payload: any): boolean => {
       return payload !== null && payload !== undefined && payload !== '';
-    }
-  }
+    },
+  };
 }
 
 export {
@@ -50,4 +50,4 @@ export {
   IValidationRule,
   RequiredValidator,
   validate,
-}
+};

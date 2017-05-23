@@ -1,16 +1,14 @@
 import {
-  button, div, option,
-  label, span, i,
-  select as rawSelect,
-  input as rawInput,
-  textarea as rawTextarea,
-  figure, img,
-  p, VNode
+  button, div, figure,
+  i, img, input as rawInput,
+  label, option, p,
+  select as rawSelect, span,
+  textarea as rawTextarea, VNode,
 } from '@cycle/dom';
 import {
-  ISelectAttribute,
+  ICheckboxAttirbute,
   IInputAttributeEx,
-  ICheckboxAttirbute
+  ISelectAttribute,
 } from './interfaces';
 
 export function select<T>(selector: string, attrs: ISelectAttribute<T>, children?: any): VNode | VNode[] {
@@ -20,36 +18,35 @@ export function select<T>(selector: string, attrs: ISelectAttribute<T>, children
 
   let options = attrs.prompt ? [option({
     attrs: {
+      selected: attrs.value === '' || attrs.value === null,
       value: '',
-      selected: attrs.value === '' || attrs.value === null
-    }
+    },
   }, attrs.prompt)] : [];
 
   if (attrs.options) {
     if (Array.isArray(attrs.options)) {
-      options = options.concat(attrs.options.map(o => option({
+      options = options.concat(attrs.options.map((o) => option({
         attrs: {
+          selected: o[valueKey] === (attrs.selected ? attrs.selected[valueKey] : attrs.value),
           value: o[valueKey],
-          selected: o[valueKey] === (attrs.selected ? attrs.selected[valueKey] : attrs.value)
-        }
+        },
       }, typeof textKey === 'function' ? textKey(o) : o[textKey])));
     } else if (typeof attrs.options === 'object') {
-      for (let key in attrs.options as any) {
+      Object.keys(attrs.options).forEach((key) => {
         options.push(option({
           attrs: {
+            selected: key === (attrs.selected ? attrs.selected : attrs.value),
             value: key,
-            selected: key === (attrs.selected ? attrs.selected : attrs.value)
-          }
+          },
         }, attrs.options[key]));
-
-      }
+      });
     }
   }
 
   const selectClass = '.select' + (attrs.isValid === true ? '.is-success' : (attrs.isValid === false ? '.is-danger' : ''));
 
   const vSelect = span(selectClass, [
-    rawSelect(selector, options)
+    rawSelect(selector, options),
   ]);
   return commonControl(vSelect, attrs, children);
 }
@@ -74,7 +71,7 @@ function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): 
   if (attrs.iconLeft) {
     childNodes.push(span(
       '.icon.is-left' + (attrs.size || ''),
-      i(attrs.iconLeft)
+      i(attrs.iconLeft),
     ));
   }
 
@@ -85,34 +82,34 @@ function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): 
       if (attrs.iconSuccess) {
         childNodes.push(span(
           '.icon.is-right' + (attrs.size || ''),
-          i(attrs.iconSuccess)
+          i(attrs.iconSuccess),
         ));
       }
 
       if (attrs.successMessage) {
-        helpNode = p('.help.is-success', attrs.successMessage)
+        helpNode = p('.help.is-success', attrs.successMessage);
       }
     } else if (attrs.isValid === false) {
       if (attrs.iconInvalid) {
         childNodes.push(span(
           '.icon.is-right' + (attrs.size || ''),
-          i(attrs.iconInvalid)
+          i(attrs.iconInvalid),
         ));
       }
 
       if (attrs.errorMessage) {
-        helpNode = p('.help.is-danger', attrs.errorMessage)
+        helpNode = p('.help.is-danger', attrs.errorMessage);
       }
     }
   } else if (attrs.iconRight) {
     childNodes.push(span(
       '.icon.is-left' + (attrs.size || ''),
-      i(attrs.iconLeft)
+      i(attrs.iconLeft),
     ));
   }
 
   if (!helpNode && attrs.help) {
-    helpNode = p('.help', attrs.help)
+    helpNode = p('.help', attrs.help);
   }
 
   if (attrs.label) {
@@ -122,7 +119,7 @@ function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): 
       vnodes.push(label('.label', attrs.label));
     }
   }
-  vnodes.push(p(controlClass, childNodes))
+  vnodes.push(p(controlClass, childNodes));
   if (helpNode) {
     vnodes.push(helpNode);
   }
@@ -158,7 +155,6 @@ export function input(selector: string, inputAttrs: any, opts?: IInputAttributeE
   return commonControl(vnode, attrs, children);
 }
 
-
 export function textarea(selector: string, inputAttrs: any, opts?: IInputAttributeEx, children?: any): VNode | VNode[] {
 
   const attrs = opts || {};
@@ -178,14 +174,14 @@ export function checkbox(selector: string, attrs: ICheckboxAttirbute, children?:
     label('.checkbox', [
       rawInput(selector, {
         props: {
+          checked: attrs.checked,
           type: 'checkbox',
           value: attrs.value,
-          checked: attrs.checked,
-        }
+        },
       }),
       attrs.label ? ' ' + attrs.label : null,
 
-    ].concat(children))
+    ].concat(children)),
   ]);
 
   return attrs.hasContainer ? div('.field' + (attrs.containerClass || ''), vnode) : vnode;
@@ -202,14 +198,14 @@ export function notification(selector: string, properties?: any, children?: any)
   childrenNodes = !Array.isArray(childrenNodes) ? [childrenNodes] : childrenNodes;
   return div('.notification' + selector, props, [
     button('.delete'),
-    ...childrenNodes
+    ...childrenNodes,
   ]);
 }
 
 export function image(selector: string, properties: any) {
 
   return figure('.image' + (selector || ''), [
-    img(properties)
+    img(properties),
   ]);
 }
 
@@ -220,5 +216,5 @@ export function getValidClass(isValid?: boolean) {
 export {
   ISelectAttribute,
   IInputAttributeEx,
-  ICheckboxAttirbute
-}
+  ICheckboxAttirbute,
+};

@@ -1,9 +1,9 @@
 
 export interface IValidationRule {
-  type: string;
   attributeName: string;
   message: string;
-  validate: (payload: any) => boolean
+  type: string;
+  validate: (payload: any) => boolean;
 }
 
 export interface IValidatorOptions {
@@ -15,4 +15,3 @@ export interface IValidationResult {
   isValid: boolean;
   errorMessage?: string;
 }
-
