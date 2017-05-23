@@ -1,7 +1,9 @@
 import isolate from '@cycle/isolate';
 import { Lens } from 'cycle-onionify';
 import xs, { Stream } from 'xstream';
-import { ControlComponent, IControlSinks, IControlState, IFormState, IProperties, ISinks, ISources, Reducer } from './interfaces';
+import {
+  ControlComponent, IControlSinks, IControlState, IDOMDictionary, IFormState,
+  IProperties, ISinks, ISources, Reducer } from './interfaces';
 import view, { renderButtons } from './view';
 
 function createControlSinks<T>(sources: ISources<T>, attributeName: string, control: ControlComponent<any>) {
@@ -79,4 +81,5 @@ export {
   ISinks as IFormSinks,
   ISources as IFormSources,
   Reducer as FormReducer,
+  IDOMDictionary,
 };
