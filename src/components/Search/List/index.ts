@@ -1,35 +1,33 @@
-import xs, { Stream } from 'xstream';
-import isolate from '@cycle/isolate';
 import { div} from '@cycle/dom';
-import { Lens, pick, mix } from 'cycle-onionify';
+import isolate from '@cycle/isolate';
+import { Lens, mix, pick } from 'cycle-onionify';
+import xs, { Stream } from 'xstream';
+import { ISearchState, ISinks, ISources, Reducer } from '../interfaces';
 import Item, { IItemState } from '../Item';
-import { ISearchState, ISources, ISinks, Reducer } from '../interfaces';
 import intent from './intent';
 import model from './model';
 
-const itemLens = function <T>(index: number): Lens<ISearchState<T>, IItemState<T>> {
+const itemLens = <T>(index: number): Lens<ISearchState<T>, IItemState<T>> => {
   return {
-    get: function(state: ISearchState<T>): IItemState<T> {
-      return {
-        option: state.filteredOptions[index],
-        isSelected: state.currentIndex === index,
-        isHovered: state.hoverIndex === index,
-        optionContent: state.contentFn ? state.contentFn(state.filteredOptions[index])
-          : state.filteredOptions[index]
-      } as any as IItemState<T>;
-    },
+    get: (state: ISearchState<T>): IItemState<T> => ({
+      isHovered: state.hoverIndex === index,
+      isSelected: state.currentIndex === index,
+      option: state.filteredOptions[index],
+      optionContent: state.contentFn ? state.contentFn(state.filteredOptions[index])
+        : state.filteredOptions[index],
+    }),
     set: (state, childState) => {
       if (childState.isSelected && state.currentIndex !== index) {
         return {
           ...state,
           currentIndex: index,
-          selected: state.filteredOptions[index],
-          inputting: false,
           hoverIndex: -1,
-          payload: childState.optionContent,
+          inputFocused: false,
+          inputting: false,
           isListVisible: false,
           listFocused: false,
-          inputFocused: false,
+          payload: childState.optionContent,
+          selected: state.filteredOptions[index],
         };
       }
 
@@ -37,9 +35,9 @@ const itemLens = function <T>(index: number): Lens<ISearchState<T>, IItemState<T
         return {
           ...state,
           hoverIndex: index,
+          inputFocused: false,
           isListVisible: true,
           listFocused: true,
-          inputFocused: false,
         };
       }
 
@@ -52,30 +50,30 @@ const itemLens = function <T>(index: number): Lens<ISearchState<T>, IItemState<T
       }
 
       return state;
-    }
+    },
   };
-}
+};
 
 export default function List<T>(sources: ISources<T>): ISinks<T> {
 
   const state$ = sources.onion.state$;
 
-  const childrenSinks$ = state$.map(state =>
+  const childrenSinks$ = state$.map((state) =>
     state.filteredOptions.map((_, i) => {
       return isolate(Item, { onion: itemLens(i)})(sources);
-    })
+    }),
   );
 
   const vdom$ = childrenSinks$
-    .compose(pick(sinks => sinks.DOM))
+    .compose(pick((sinks) => sinks.DOM))
     .compose(mix(xs.combine))
-    .map(itemVNodes => {
+    .map((itemVNodes) => {
       const results =  div('.results', itemVNodes);
       return results;
     });
 
   const itemReducer$ = childrenSinks$
-    .compose(pick(sinks => sinks.onion))
+    .compose(pick((sinks) => sinks.onion))
     .compose(mix(xs.merge));
 
   const action$ = intent(sources.DOM);

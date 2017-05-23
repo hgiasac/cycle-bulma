@@ -1,0 +1,2211 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"http",
+				"http$$\tconst"
+			],
+			[
+				"h",
+				"http$\tconst"
+			],
+			[
+				"inp",
+				"inputClass\tproperty"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"pare",
+				"parentReducer$\tconst"
+			],
+			[
+				"defa",
+				"defaultReducer$\tconst"
+			],
+			[
+				"IS",
+				"IState\talias"
+			],
+			[
+				"tim",
+				"timestamp"
+			],
+			[
+				"reuslt",
+				"results ([])"
+			],
+			[
+				"subej",
+				"subjectId"
+			],
+			[
+				"vehi",
+				"vehicleBrand (?)"
+			],
+			[
+				"toThriftObje",
+				"toThriftObject (fn/0)"
+			],
+			[
+				"for",
+				"forEach (?)"
+			],
+			[
+				"Vehi",
+				"VehicleModel (fn/2)"
+			],
+			[
+				"Vehic",
+				"vehicleModel"
+			],
+			[
+				"Trips",
+				"TripStatus (fn/1)"
+			],
+			[
+				"sta",
+				"tripStatusHistories (?)"
+			],
+			[
+				"tripHistor",
+				"tripHistories"
+			],
+			[
+				"trip",
+				"tripHistoryLength (num)"
+			],
+			[
+				"tripst",
+				"tripStatusHistories (?)"
+			],
+			[
+				"triphi",
+				"tripStatusHistories (?)"
+			],
+			[
+				"Service",
+				"ServiceType (fn/0)"
+			],
+			[
+				"serviceT",
+				"serviceTypeId (?)"
+			],
+			[
+				"last",
+				"lastActive (?)"
+			],
+			[
+				"driver",
+				"driverRate (?)"
+			],
+			[
+				"selec",
+				"selectOptions (obj)"
+			],
+			[
+				"modl",
+				"Model (?)"
+			],
+			[
+				"service",
+				"serviceType (?)"
+			],
+			[
+				"dr",
+				"dropOffAddressId (?)"
+			],
+			[
+				"vehic",
+				"vehicle"
+			],
+			[
+				"serviceType",
+				"serviceTypeStore"
+			],
+			[
+				"mode",
+				"modelServices"
+			],
+			[
+				"driverActivityUP",
+				"driverActivityUpsertOne"
+			],
+			[
+				"thri",
+				"thriftService (obj)"
+			],
+			[
+				"responseFun",
+				"responseFunc (fn/0)"
+			],
+			[
+				"user",
+				"userStore (?)"
+			],
+			[
+				"c",
+				"config (?)"
+			],
+			[
+				"_model",
+				"_modelClass ([])"
+			],
+			[
+				"_moe",
+				"_modelClass ([])"
+			],
+			[
+				"servi",
+				"serviceMap (obj)"
+			],
+			[
+				"modelCl",
+				"modelClassName (?)"
+			],
+			[
+				"modelClass",
+				"modelClassName"
+			],
+			[
+				"inser",
+				"insertModels ([])"
+			],
+			[
+				"clone",
+				"cloneCfg (obj)"
+			],
+			[
+				"au",
+				"_authenticators (obj)"
+			],
+			[
+				"stdout",
+				"process.stdout"
+			],
+			[
+				"he",
+				"helpers (?)"
+			],
+			[
+				"profile",
+				"profileSchema (?)"
+			],
+			[
+				"defaul",
+				"defaultConfig (?)"
+			],
+			[
+				"va",
+				"verificationExpiry (?)"
+			],
+			[
+				"select",
+				"selectOptions (?)"
+			],
+			[
+				"dta",
+				"dtaxiCommon (?)"
+			],
+			[
+				"update",
+				"updatedAt"
+			],
+			[
+				"subj",
+				"subjectType"
+			],
+			[
+				"app",
+				"appDefined (?)"
+			],
+			[
+				"type",
+				"typeof (?)"
+			],
+			[
+				"sub",
+				"subjectType (?)"
+			],
+			[
+				"re",
+				"resolve (fn/1)"
+			],
+			[
+				"socket",
+				"socketLog (?)"
+			],
+			[
+				"dtaxi",
+				"dtaxiDataAccess (?)"
+			],
+			[
+				"Soc",
+				"SocketSessionBusiness (?)"
+			],
+			[
+				"Trip",
+				"TripRequestProcess (fn/1)"
+			],
+			[
+				"err",
+				"errors (?)"
+			],
+			[
+				"drive",
+				"driverId (?)"
+			],
+			[
+				"tripS",
+				"tripSession (?)"
+			],
+			[
+				"default",
+				"defaultResources (?)"
+			],
+			[
+				"sessio",
+				"sessionAdapter (?)"
+			],
+			[
+				"unde",
+				"undefined (?)"
+			],
+			[
+				"Driver",
+				"DriverActivityQuery"
+			],
+			[
+				"trips",
+				"tripSession (obj)"
+			],
+			[
+				"req",
+				"request (obj)"
+			],
+			[
+				"tye",
+				"typeof (?)"
+			],
+			[
+				"ima",
+				"imageUrls ([])"
+			],
+			[
+				"upda",
+				"updatedBy (?)"
+			],
+			[
+				"created",
+				"createdBy (?)"
+			],
+			[
+				"regis",
+				"registeredDate (?)"
+			],
+			[
+				"extra",
+				"extraFees ([])"
+			],
+			[
+				"create",
+				"createdBy (?)"
+			],
+			[
+				"cretae",
+				"createdAt"
+			],
+			[
+				"option",
+				"optional"
+			],
+			[
+				"optoin",
+				"optional"
+			],
+			[
+				"ass",
+				"assignData"
+			],
+			[
+				"exce",
+				"exception.DBExceptions"
+			],
+			[
+				"Extra",
+				"ExtraFeeInsert"
+			],
+			[
+				"str",
+				"struct"
+			],
+			[
+				"dro",
+				"dropOff\t(default.json)"
+			],
+			[
+				"drop",
+				"dropOff"
+			],
+			[
+				"updatetr",
+				"updateCurrentTrip\t(trip.js)"
+			],
+			[
+				"provin",
+				"provinceCode"
+			],
+			[
+				"use",
+				"userSettingsSchema\t(profile.js)"
+			],
+			[
+				"typ",
+				"typeof"
+			],
+			[
+				"canceled-by-",
+				"canceled-by-driver\t(socket.json)"
+			],
+			[
+				"dtaxires",
+				"dtaxiDefaultResources\t(profile.js)"
+			],
+			[
+				"acti",
+				"activity\t(trip.js)"
+			],
+			[
+				"rating",
+				"ratingRequest\t(driver-trip.js)"
+			],
+			[
+				"clien",
+				"clientSessionQuery"
+			],
+			[
+				"sw",
+				"switch\t(client-cancel-trip.js)"
+			],
+			[
+				"markall",
+				"markAllCustomerNotificationsAsRead\t(service.thrift)"
+			],
+			[
+				"gettri",
+				"getTrip\t(service.thrift)"
+			],
+			[
+				"Selec",
+				"SelectOptions"
+			],
+			[
+				"optiosn",
+				"optionsTypes"
+			],
+			[
+				"cons",
+				"console\t(trip.js)"
+			],
+			[
+				"toTh",
+				"toThriftObject"
+			],
+			[
+				"Pagin",
+				"PagingQuery"
+			],
+			[
+				"av",
+				"avatarThumbnail"
+			],
+			[
+				"toThr",
+				"toThriftForm\t(customer.js)"
+			],
+			[
+				"response",
+				"responseProfile"
+			],
+			[
+				"schem",
+				"schema\t(trip.js)"
+			],
+			[
+				"dropo",
+				"dropOff"
+			],
+			[
+				"respon",
+				"response"
+			],
+			[
+				"meta",
+				"metadata"
+			],
+			[
+				"except",
+				"exceptStatus\t(trip.js)"
+			],
+			[
+				"custoem",
+				"customer_id"
+			],
+			[
+				"vehicl",
+				"vehicleId"
+			],
+			[
+				"vehil",
+				"vehicleId\t(trip-filter.js)"
+			],
+			[
+				"thrift",
+				"thriftForm"
+			],
+			[
+				"filter",
+				"filterForm"
+			],
+			[
+				"date",
+				"dateOfBirth"
+			],
+			[
+				"requ",
+				"request"
+			],
+			[
+				"soc",
+				"socketServerId\t(driver.thrift)"
+			],
+			[
+				"respo",
+				"responseObject\t(trip.js)"
+			],
+			[
+				"toth",
+				"toThriftObject"
+			],
+			[
+				"new",
+				"newPoint"
+			],
+			[
+				"server",
+				"serverId"
+			],
+			[
+				"fare",
+				"fareTypes"
+			],
+			[
+				"eve",
+				"events\t(driver-trip.js)"
+			],
+			[
+				"dtax",
+				"dtaxiCommon"
+			],
+			[
+				"complte",
+				"complete\t(driver-trip.js)"
+			]
+		]
+	},
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 446.0,
+		"last_filter": "pa in",
+		"selected_items":
+		[
+			[
+				"pa in",
+				"Package Control: Install Package"
+			],
+			[
+				"req",
+				"Require"
+			],
+			[
+				"valid",
+				"Pretty JSON: Validate"
+			],
+			[
+				"va",
+				"Pretty JSON: Validate"
+			],
+			[
+				"header",
+				"FileHeader: Add Header"
+			],
+			[
+				"valida",
+				"Pretty JSON: Validate"
+			],
+			[
+				"val",
+				"Pretty JSON: Validate"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"thri",
+				"Set Syntax: Thrift"
+			],
+			[
+				"json va",
+				"Pretty JSON: Validate"
+			],
+			[
+				"r",
+				"Require"
+			],
+			[
+				"re",
+				"Require"
+			],
+			[
+				"filehe",
+				"FileHeader: Add Header"
+			],
+			[
+				"vali",
+				"Pretty JSON: Validate"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"",
+				"BracketHighlighter: Select Next Attribute (left)"
+			],
+			[
+				"rq",
+				"Require"
+			],
+			[
+				"requi",
+				"Require"
+			],
+			[
+				"pa remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"requ",
+				"Require"
+			],
+			[
+				"json val",
+				"Pretty JSON: Validate"
+			],
+			[
+				"json",
+				"Set Syntax: JSON (Javascript Next)"
+			],
+			[
+				"rqe",
+				"Require"
+			],
+			[
+				"head",
+				"FileHeader: Add Header"
+			],
+			[
+				"REQ",
+				"Require"
+			],
+			[
+				"reqiu",
+				"Require"
+			],
+			[
+				"requi\t",
+				"Require"
+			],
+			[
+				"sql po",
+				"Set Syntax: SQL (PostgreSQL)"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"yaml",
+				"Set Syntax: YAML"
+			],
+			[
+				"reuiq",
+				"Permute Lines: Unique"
+			],
+			[
+				"config",
+				"Set Syntax: Buildout Config"
+			],
+			[
+				"php fm",
+				"phpfmt: format now"
+			],
+			[
+				"php fmt",
+				"phpfmt: format now"
+			],
+			[
+				"SQ",
+				"Set Syntax: SQL"
+			],
+			[
+				"SQL",
+				"Set Syntax: SQL"
+			],
+			[
+				"php cs",
+				"PHP Code Sniffer: Sniff this file"
+			],
+			[
+				"ngin",
+				"Set Syntax: nginx"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"fmt",
+				"phpfmt: toggle auto align"
+			],
+			[
+				"form",
+				"phpfmt: format now"
+			],
+			[
+				"phpfmt",
+				"phpfmt: format now"
+			],
+			[
+				"phpfm",
+				"phpfmt: format now"
+			],
+			[
+				"pa rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"beau",
+				"PHP CodeBeautifier"
+			],
+			[
+				"php be",
+				"PHP CodeBeautifier"
+			],
+			[
+				"beaut",
+				"SassBeautify: Convert from CSS to current type"
+			],
+			[
+				"merge",
+				"Sublimerge"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"git mer",
+				"Git: Merge Branch"
+			],
+			[
+				"git ",
+				"Git: Push"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"pa i",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ini",
+				"Set Syntax: INI"
+			],
+			[
+				"pain",
+				"Package Control: Install Package"
+			],
+			[
+				"pa dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"ass",
+				"Snippet: Golang type assertion values"
+			],
+			[
+				"assert",
+				"Snippet: Golang type assertion values"
+			],
+			[
+				"JSON",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"jsonl",
+				"Pretty JSON: Validate"
+			],
+			[
+				"pa remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"pa en",
+				"Package Control: Enable Package"
+			],
+			[
+				"pa ",
+				"Package Control: List Packages"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"type",
+				"Snippet: Golang type assertion values"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"sassbe",
+				"SassBeautify"
+			],
+			[
+				"css",
+				"Run CSScomb"
+			],
+			[
+				"cssco",
+				"Run CSScomb"
+			],
+			[
+				"cssc",
+				"Run CSScomb"
+			],
+			[
+				"css com",
+				"Run CSScomb"
+			],
+			[
+				"sass",
+				"SassBeautify"
+			],
+			[
+				"pa lis",
+				"Package Control: List Packages"
+			],
+			[
+				"pa ins",
+				"Package Control: Install Package"
+			],
+			[
+				"sho",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"show",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"pa re",
+				"Package Control: Remove Package"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"pa di",
+				"Package Control: Disable Package"
+			],
+			[
+				"js",
+				"JSHint: Set Plugin Options"
+			],
+			[
+				"jshin",
+				"JSHint: Set Plugin Options"
+			],
+			[
+				"csscom",
+				"Run CSScomb"
+			],
+			[
+				"commen",
+				"Toggle Comment"
+			],
+			[
+				"comment",
+				"DocBlockr: Reparse comment block"
+			],
+			[
+				"CSSC",
+				"Run CSScomb"
+			],
+			[
+				"djang",
+				"Set Syntax: Python Django"
+			],
+			[
+				"glue",
+				"Glue - Launch"
+			],
+			[
+				"pa d",
+				"Package Control: Disable Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				" pa",
+				"Package Control: Install Package"
+			],
+			[
+				"jshint",
+				"JSHint"
+			],
+			[
+				"jshi",
+				"JSHint"
+			],
+			[
+				"jsh",
+				"JSHint"
+			],
+			[
+				"pa remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"pa list",
+				"Package Control: List Packages"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"pytho",
+				"Set Syntax: Python Django"
+			],
+			[
+				"djan",
+				"Set Syntax: Python Django"
+			],
+			[
+				"snip",
+				"Snippet: block"
+			],
+			[
+				"git di",
+				"Git: Diff Current File"
+			],
+			[
+				"ftp",
+				"SFTP: Cancel Upload"
+			],
+			[
+				"prefix",
+				"Autoprefix CSS"
+			],
+			[
+				"topco",
+				"Snippet: Top Comment"
+			],
+			[
+				"respon",
+				"Snippet: All Responvive Media"
+			],
+			[
+				"top com",
+				"Snippet: Top Comment"
+			],
+			[
+				"ngnix",
+				"Set Syntax: nginx"
+			],
+			[
+				"ngninx",
+				"Set Syntax: nginx"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"nginx",
+				"Set Syntax: nginx"
+			],
+			[
+				"svn cle",
+				"SVN: Cleanup"
+			],
+			[
+				"Package Control: li",
+				"Package Control: List Packages"
+			],
+			[
+				"top",
+				"Snippet: Top Comment"
+			],
+			[
+				"myde",
+				"Snippet: My Custom PHP Debug Code"
+			],
+			[
+				"tidy",
+				"TidyHTML"
+			],
+			[
+				"show er",
+				"Anaconda: Show error list"
+			],
+			[
+				"show ",
+				"Anaconda: Show error list"
+			],
+			[
+				"showa ",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"anaco",
+				"Anaconda: Show error list"
+			],
+			[
+				"go to",
+				"Goto Documentation"
+			],
+			[
+				"linter\t ",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"error",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"liinter",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"formatj",
+				"Format: Javascript"
+			]
+		],
+		"width": 890.0
+	},
+	"console":
+	{
+		"height": 160.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"print $PATH",
+			"echo $PATH",
+			"clear",
+			"linter",
+			"jshint",
+			"sublimelinter",
+			"php -l",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"https://github.com/SublimeText/CTags",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/data/projects/typescript/cycle-bulma/src/components/Form/Select/interfaces.ts",
+		"/data/projects/typescript/cycle-bulma/.gitignore",
+		"/data/projects/nexx/dtaxi/dtaxi-cycle/src/pages/CallCenter/components/TripForm/index.ts",
+		"/data/projects/nexx/dtaxi/dtaxi-cycle/src/pages/CallCenter/components/TripForm/interfaces.ts",
+		"/data/projects/typescript/cycle-bulma/src/components/Form/Form/interfaces.ts",
+		"/data/projects/typescript/cycle-bulma/src/components/Form/Form/index.ts",
+		"/data/projects/v2/people-voice/src/pv-cycle/src/components/ReferenceInput",
+		"/data/projects/v2/people-voice/src/pv-react/public/index.html",
+		"/data/projects/nexx/gvn/gvn-node-server/gvn-data-access/adapters/category-group.js",
+		"/data/projects/nexx/gvn/gvn-node-server/gvn-data-access/adapters/booking-detail.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/package.json",
+		"/data/projects/nexx/gvn/db/postgres/updates/20170310_033315_address_ward_code.sql",
+		"/data/projects/nexx/gvn/gvn-data-access-thrift/shared/address.thrift",
+		"/data/projects/nexx/gvn/gvn-php-server/common/config/bootstrap.php",
+		"/data/src/pgadmin4-1.2/README",
+		"/data/projects/nexx/vietlotto/src/lotto-php-server/backend/web/js/functions.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/package.json",
+		"/data/projects/nexx/gvn/gvn-customer-api/package.json",
+		"/data/projects/nexx/gvn/gvn-cleaner-api/package.json",
+		"/data/projects/nexx/gvn/deploy_production.sh",
+		"/data/projects/nexx/gvn/gvn-customer-api/config/production.json",
+		"/data/projects/nexx/gvn/gvn-cleaner-api/config/production.json",
+		"/data/projects/nexx/gvn/gvn-data-access-api/config/production.json",
+		"/data/backup/dtaxi/dtaxi_production_20170306_013900.sql",
+		"/data/projects/nexx/gvn/gvn-data-common-api/environments/production/nginx/cdn-gvn.nexx.vn.conf",
+		"/data/projects/nexx/gvn/db/mongo/schema.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/environments/production/nginx/gvn.nexx.vn.conf",
+		"/data/backup/database/gvn/postgres/gvn_production_20170305_231200.sql",
+		"/data/projects/nexx/gvn/gvn-server-api/config/production.json",
+		"/data/projects/nexx/gvn/process_production.json",
+		"/data/projects/nexx/gvn/gvn-bot/package.json",
+		"/data/projects/nexx/gvn/gvn-server-api/config/testing.json",
+		"/data/projects/nexx/gvn/gvn-data-access-api/config/testing.json",
+		"/data/projects/nexx/gvn/gvn-customer-api/config/testing.json",
+		"/data/projects/nexx/gvn/gvn-server-api/package.json",
+		"/data/projects/nexx/gvn/deploy_test.sh",
+		"/data/projects/nexx/gvn/process_testing.json",
+		"/data/projects/nexx/gvn/gvn-data-common-api/environments/testing/nginx/test-cdn-gvn.nexx.vn.conf",
+		"/data/projects/nexx/gvn/gvn-data-common-api/environments/testing/nginx/test-gvn.nexx.vn.conf",
+		"/data/backup/database/dtaxi/dtaxi_testing_20170306_190200.sql",
+		"/data/projects/nexx/gvn/gvn-customer-api/config/default.json",
+		"/data/projects/nexx/gvn/db/postgres/updates/20161116_153048_update_phone_number_84_to_0.sql",
+		"/data/projects/nexx/gvn/gvn-cleaner-api/controllers/booking.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/business/booking.js",
+		"/data/projects/nexx/gvn/test-cms-deploy.sh",
+		"/data/projects/nexx/gvn/deploy.sh",
+		"/data/projects/nexx/gvn/gvn-data-access-thrift/service.thrift",
+		"/data/projects/nexx/gvn/gvn-php-server/common/modules/adminUser/config/rights.php",
+		"/data/projects/nexx/gvn/gvn-php-server/backend/web/js/admin.js",
+		"/home/tongeek/.config/sublime-text-3/Packages/User/Tern.sublime-settings",
+		"/data/projects/nexx/gvn/gvn-customer-api/routes/booking.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/models/customer.js",
+		"/data/projects/nexx/gvn/gvn-data-access-thrift/models/customer.thrift",
+		"/data/projects/nexx/gvn/db/postgres/updates/20170118_033646_add_customer_type.sql",
+		"/data/backup/database/gvn/postgres/gvn_test_20170114_114800.sql",
+		"/data/projects/nexx/gvn/gvn-customer-api/server-test.js",
+		"/data/projects/nexx/gvn/gvn-customer-api/controllers/booking.js",
+		"/data/projects/nexx/gvn/gvn-customer-api/controllers/category.js",
+		"/data/projects/nexx/gvn/gvn-customer-api/controllers/service.js",
+		"/data/projects/nexx/gvn/gvn-customer-api/controllers/service-location-detail.js",
+		"/data/projects/nexx/gvn/gvn-customer-api/routes/service.js",
+		"/data/projects/nexx/gvn/gvn-customer-api/schemas/profile.js",
+		"/data/projects/nexx/gvn/gvn-customer-api/routes/notification.js",
+		"/data/projects/nexx/gvn/gvn-customer-api/schemas/simple-profile.js",
+		"/data/projects/nexx/gvn/gvn-customer-api/resources/messages.json",
+		"/data/projects/nexx/gvn/gvn-customer-api/routes/service-location-detail.js",
+		"/data/backup/database/gvn/postgres/gvn_production_20170105.sql",
+		"/data/projects/nexx/gvn/gvn.sublime-project",
+		"/data/backup/database/admin.sql",
+		"/data/projects/nexx/gvn/gvn-data-common-api/gen-nodejs/GVNDataService.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/service-location.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/location-level.js",
+		"/data/projects/nexx/gvn/gvn-server-api/controllers/booking.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/service.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/province.js",
+		"/data/projects/nexx/gvn/gvn-server-api/routes/booking.js",
+		"/data/projects/nexx/gvn/db/postgres/updates/20170113_080813_create_service_old_table.sql",
+		"/data/projects/nexx/gvn/gvn-data-common-api/models/category-old.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/includes/models.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/adapters/category-old.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/category-old.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/category.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/server.js",
+		"/data/gvn_category_old.sql",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/service-location-detail.js",
+		"/data/gvn_server_type_old.sql",
+		"/data/projects/nexx/gvn/gvn-data-common-api/models/level.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/models/booking-detail.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/booking.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/bookingdetail.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/category-group.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/cleaner-activity.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/cleaner-address.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/cleaner-transaction.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/cleaner.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/common.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/country.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/customer-address.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/customer-verification-history.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/customer.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/discount-beta.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/district.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/level.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/system-setting.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/services/ward.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/models/service.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/calculators/not-price.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/calculators/has-price.js",
+		"/data/projects/nexx/gvn/gvn-data-access-api/adapters/customer.js",
+		"/data/projects/nexx/gvn/process_serverdev.json",
+		"/data/projects/nexx/gvn/process.json",
+		"/data/projects/nexx/gvn/gvn-data-common-api/resources/errors/errors_en.json",
+		"/data/projects/nexx/gvn/gvn-data-common-api/models/category-group.js",
+		"/data/projects/nexx/gvn/gvn-data-access-thrift/models/category_group.thrift",
+		"/data/projects/nexx/gvn/gvn-data-access-thrift/models/service_cleaner.thrift",
+		"/data/projects/nexx/gvn/gvn-customer-api/node_modules/nexx-helpers/helpers/hapi.js",
+		"/data/projects/nexx/gvn/gvn-php-server/backend/views/partials/_side_nav.php",
+		"/data/projects/nexx/gvn/gvn-server-api/config/default.json",
+		"/data/projects/nexx/gvn/gvn-data-access-api/config/default.json",
+		"/data/projects/nexx/gvn/gvn-data-access-thrift/models/level.thrift",
+		"/data/projects/nexx/gvn/gvn-data-access-thrift/models/location_level.thrift",
+		"/data/projects/nexx/gvn/gvn-data-common-api/resources/errors/errors.json",
+		"/data/projects/nexx/gvn/gvn-data-common-api/gen-nodejs/address_types.js",
+		"/data/projects/nexx/gvn/db/postgres/updates/20161229_033645_add_description_multilanguage.sql",
+		"/data/projects/nexx/gvn/db/postgres/updates/20161227_183704_drop_contrain.sql",
+		"/data/projects/nexx/gvn/gvn-data-common-api/node_modules/nexx-helpers/helpers/data.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/node_modules/nexx-helpers/helpers/language.js",
+		"/data/projects/nexx/gvn/gvn-data-common-api/node_modules/nexx-helpers/helpers/json.js"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 123.0,
+		"where_history":
+		[
+			"/data/projects/nexx/gvn/gvn-data-common-api",
+			"/data/projects/nexx/gvn/db/postgres/updates",
+			"/data/projects/nexx/gvn/gvn-php-server",
+			"/data/projects/nexx/gvn/gvn-php-server/common/modules",
+			"/data/projects/nexx/gvn/gvn-customer-api/controllers",
+			"/data/projects/nexx/gvn/gvn-customer-api/routes",
+			"/data/projects/nexx/dtaxi/dtaxi-data-access/db/postgres/updates",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/business",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/controllers",
+			"/data/projects/nexx/dtaxi/customer-api/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/business",
+			"/data/projects/nexx/dtaxi/driver-api/controllers",
+			"/data/projects/nexx/dtaxi/customer-api/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-data-access/adapters",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/business",
+			"/data/projects/nexx/dtaxi/driver-api/controllers",
+			"/data/projects/nexx/dtaxi/customer-api/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/business",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-data-access/adapters",
+			"/data/projects/nexx/dtaxi/dtaxi-data-access",
+			"/data/projects/nexx/dtaxi/dtaxi-data-access/adapters",
+			"/data/projects/nexx/dtaxi/driver-api/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-data-access/db/postgres/updates",
+			"/data/projects/nexx/dtaxi",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker",
+			"/data/projects/nexx/dtaxi/dtaxi-data-access",
+			"/data/projects/nexx/dtaxi/customer-api",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/controllers",
+			"/data/projects/nexx/dtaxi/dtaxi-tracker/business",
+			"/data/projects/nexx/dtaxi/dtaxi-data-access-thrift/gen-nodejs",
+			"/data/projects/nexx/nexex-data-access/adapters",
+			"/data/projects/nexx/nexex-data-access/services",
+			"/data/projects/nexx/nexex-data-access/adapters",
+			"/data/projects/php/merchant-webmoney",
+			"/data/projects/php/merchant-webmoney/api",
+			"/data/projects/php/merchant-webmoney/common",
+			"/data/projects/php/merchant-webmoney",
+			"/data/projects/php/merchant-webmoney/vendor",
+			"/data/projects/php/merchant-webmoney",
+			"/data/projects/php/merchant-webmoney/api/models",
+			"/data/projects/go/src/bitbucket.org/tongeek/v2go",
+			"/data/projects/go/src/eaterin/v2/web",
+			"/data/projects/go/src/eaterin/v2/log",
+			"/data/projects/go/src/eaterin/v2/web",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/templates",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/components",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/templates",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/controllers",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/styles",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/templates",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/styles/app",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/styles",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/styles/foundation",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app/templates",
+			"/data/projects/python/eatenv/eaterin/eaterinjs/app",
+			"/data/projects/python/eatenv/eaterin/jakt",
+			"/data/projects/python/eatenv/eaterin/static/eaterinjs/app/styles/foundation/components",
+			"/data/projects/python/eatenv/eaterin",
+			"/data/projects/php/source/findtoto/wp-content/plugins/lostpets/lp-core",
+			"/data/projects/php/source/findtoto/wp-content/plugins/lostpets",
+			"/data/projects/php/source/findtoto/wp-content/plugins/lostpets/lp-core",
+			"C:\\SOFTWARE\\webserver\\nginx\\html\\findtoto\\wp-content\\plugins\\lostpets",
+			"C:\\SOFTWARE\\webserver\\nginx\\html\\65doctormultilang\\protected",
+			"C:\\SOFTWARE\\webserver\\nginx\\html\\65doctormultilang\\protected\\views\\site",
+			"C:\\SOFTWARE\\webserver\\nginx\\html\\65doctormultilang\\themes\\65doctor",
+			"C:\\SOFTWARE\\webserver\\nginx\\html\\65doctormultilang\\protected",
+			"C:\\SOFTWARE\\xampp\\htdocs\\65doctormultilang"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"IInputState",
+			"ISelectAttribute",
+			"type",
+			",\n",
+			"ward",
+			",",
+			"fast-safe-stringify",
+			"_sendEmailNewBooking",
+			"mailHelper",
+			"_sendEmailNewBooking",
+			"sub",
+			"CleanerActivity",
+			"getall",
+			"categoryGroupGetAllActive",
+			"getall",
+			"applyBookingDetailCleaner",
+			"get-cancel-bookings",
+			"AdminCommon",
+			"good",
+			"_applyBookingDetailCleaner",
+			"static",
+			"applyBookingDetail",
+			"cancel",
+			"simple-profile",
+			"simplep-profile",
+			"commonGetCategory",
+			"getoneby",
+			"commonInsertBooking",
+			"commonchangeboo",
+			"start",
+			"assign",
+			"isFixed",
+			"getmany(",
+			"getone(",
+			"getone",
+			"getmany",
+			"getmanyByPk(",
+			"getmany(",
+			"getonebypk(",
+			"getonebypk",
+			"GetAll",
+			"category",
+			"hc_category ",
+			"getmany(",
+			"isfix",
+			"applythrift(",
+			"applyth",
+			"getManyRelation",
+			"isfixed",
+			"getmany(",
+			"getmany",
+			"getone(",
+			"getmany(",
+			"getmany",
+			"isFixed",
+			"reas\t",
+			"rea",
+			"levelName",
+			",\n    \"out_file\": \"/dev/null\",\n    \"error_file\": \"/dev/null\"",
+			"good",
+			"applythri",
+			"error",
+			"gvnErrors",
+			"gvnerrors",
+			"errormana",
+			"gvnerrors",
+			"helpers.Error",
+			"translate",
+			"insertbo",
+			"wardid",
+			"booking",
+			"cleaner_category_group_id_foreign_key",
+			"commonGetCategory",
+			"isEmpty",
+			"nameI18n",
+			",",
+			"changeBookingStatusAccepted",
+			"common",
+			"complete",
+			"commonCompleteBooking",
+			"complete",
+			"completeCurrent",
+			"completeCurrentBooking",
+			"complete",
+			"cleanerno",
+			"cleanerNo",
+			"calculateBalance",
+			"complete",
+			"calculate",
+			"incom",
+			"email",
+			"beta",
+			"time",
+			"params: {",
+			"bookingquery",
+			"booking",
+			"userVerificationHistory",
+			"customerVerificationHistoryInsertOne",
+			"CustomerVerificationHistory",
+			"customerVerificationSms",
+			"balancereq",
+			"beforeGetProfile",
+			"levelname",
+			"calculateTotalAmount",
+			"this.calculateTotalAmount",
+			"getAttributeKeys",
+			"'app'",
+			"cleanerRate",
+			"discount",
+			"fee",
+			"fedd",
+			"levelPrice",
+			"reso",
+			"resou",
+			"defaultr",
+			"customerVerificationSms",
+			"userSettingSchema",
+			"},\n",
+			"markall",
+			"notification",
+			"defaultResources",
+			"dtaxiResources",
+			"dtaxi",
+			"off",
+			"request",
+			"complete",
+			"GetOneByPk",
+			"balance"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"hc_category_old ",
+			"",
+			"request.errorManager",
+			"",
+			"customerVerificationHistory",
+			"'customer'",
+			"",
+			"nexx",
+			"dtaxi",
+			"nexx",
+			"self.log",
+			"driver",
+			"Driver",
+			"driver",
+			"profileController",
+			"customer",
+			"dtaxiClient",
+			"Customer",
+			"",
+			"Server",
+			"",
+			"\"bitbucket.org/tongeek/v2go",
+			"bitbucket.org/tongeek/v2go",
+			"3$1",
+			"2$1",
+			"1$1",
+			"target",
+			"Uri",
+			"64",
+			"32",
+			"16",
+			"32",
+			"16",
+			"InArray$1\\(v, result\\)",
+			"for i := 1",
+			"32",
+			"64",
+			"32",
+			"16",
+			"duplicating",
+			"64",
+			"32",
+			"16",
+			"uint",
+			"Uint",
+			"Oauth2ProviderRefreshToken",
+			"Oauth2ProviderGrant",
+			"Oauth2ProviderApplication",
+			"Oauth2Access",
+			"Oauth2ProviderAccess",
+			"UserOauth2ProviderAccess",
+			"UserOauth2Access",
+			"Address",
+			"UserActivityLog",
+			"*PasswordReset",
+			"PasswordReset",
+			"mdl",
+			"rule ",
+			"rule",
+			"User",
+			"(*v",
+			"case *",
+			"range *v",
+			"if len(*v)",
+			"case *",
+			"UserRole",
+			"if err != nil {\n\t\t\t\t\treturn nil, err \n\t\t\t\t} \n              results = append(results, parsed)  ",
+			"",
+			"else {\n\t\t\t\treturn nil, fmt.Errorf(typeErrMessage, item)\n\t\t\t}",
+			"Parse$1\\(item\\)",
+			"return &results, nil\\n",
+			"return results, nil\\n",
+			"return results, nil",
+			"fmt.Errorf(typeErrMessage, item)",
+			"",
+			"binding.Error",
+			"&binding.Error",
+			"*binding.Error",
+			"ErrType",
+			"ErrRequired",
+			"return nil, err",
+			"ret =",
+			"float32(",
+			"float64(",
+			"ParseUint",
+			"arr, uint",
+			"int(",
+			"int8(",
+			"int16(",
+			"int32(",
+			"ParseInt32",
+			"int64",
+			"ParseInt32",
+			"ParseInt8",
+			"ParseInt",
+			"ParseInt8",
+			"ParseInt16",
+			"ParseInt32",
+			"ParseInt64",
+			"return []bool{v != 0}",
+			"return uint",
+			"strconv.ParseInt(v, 10,",
+			" int",
+			" float32",
+			" int32",
+			"int16",
+			"int8",
+			"db.Err",
+			"binding.FieldMap",
+			"FieldMap",
+			"panic",
+			"errs Errors",
+			"{\n\t\t\trule.addError(fieldName, errs)\n            hasError = true\n\t\t}",
+			"rule.addError(fieldName, errs)",
+			"rule.addError(fieldName, &errs)",
+			"_ = int64(*v)",
+			"rule.addError(fieldName, errs)",
+			"rule.addError",
+			"rule.addRequiredError(fieldName, rule, errs)",
+			"case *",
+			"${1:context}",
+			"case *",
+			"Controller",
+			"'",
+			"$to-color",
+			"to-color",
+			"from-color"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.9o:///data/projects/go/src/eaterin/v2/account/model":
+	{
+		"height": 158.0
+	},
+	"output.9o:///data/projects/go/src/eaterin/v2/account/web":
+	{
+		"height": 158.0
+	},
+	"output.9o:///data/projects/go/src/eaterin/v2/binding":
+	{
+		"height": 158.0
+	},
+	"output.9o:///data/projects/go/src/eaterin/v2/oauth2":
+	{
+		"height": 158.0
+	},
+	"output.9o:///data/projects/go/src/eaterin/v2/web":
+	{
+		"height": 158.0
+	},
+	"output.GoSublime-main-output":
+	{
+		"height": 158.0
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 132.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 124.0
+	},
+	"output.sftp":
+	{
+		"height": 124.0
+	},
+	"output.tern_arghint":
+	{
+		"height": 142.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 132.0
+	},
+	"output.variable_get":
+	{
+		"height": 158.0
+	},
+	"pinned_build_system": "",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"commondefau",
+				"dtaxi/dtaxi-common-api/resources/default.json"
+			],
+			[
+				"resources/de",
+				"dtaxi/dtaxi-common-api/resources/default.json"
+			],
+			[
+				"commondefaul",
+				"dtaxi/dtaxi-common-api/config/default.json"
+			],
+			[
+				"trip.th",
+				"dtaxi/dtaxi-data-access-thrift/models/trip.thrift"
+			],
+			[
+				"trip-ses",
+				"dtaxi/dtaxi-common-api/models/trip-session.js"
+			],
+			[
+				"dtaxi-comm",
+				"dtaxi/dtaxi-common-api/includes/models.js"
+			],
+			[
+				"resourcedefaul",
+				"dtaxi/dtaxi-common-api/resources/default.json"
+			],
+			[
+				"commonresour",
+				"dtaxi/dtaxi-common-api/resources/default.json"
+			],
+			[
+				"trip.thri",
+				"dtaxi/dtaxi-data-access-thrift/models/trip.thrift"
+			],
+			[
+				"driverac",
+				"dtaxi/dtaxi-common-api/models/driver-activity.js"
+			],
+			[
+				"commontrip",
+				"dtaxi/dtaxi-common-api/models/trip.js"
+			],
+			[
+				"dtaxi",
+				"dtaxi/dtaxi-common-api/gen-nodejs/DTaxiDataService.js"
+			],
+			[
+				"driver_ty",
+				"dtaxi/dtaxi-common-api/gen-nodejs/driver_types.js"
+			],
+			[
+				"resources/defaul",
+				"dtaxi/dtaxi-common-api/resources/default.json"
+			],
+			[
+				"clienttripreq",
+				"dtaxi/dtaxi-tracker/tests/raw/client-trip-request.js"
+			],
+			[
+				"routes/tr",
+				"dtaxi/driver-api/routes/trip.js"
+			],
+			[
+				"driver-api/schema/trip",
+				"dtaxi/driver-api/models/schemas/trip.js"
+			],
+			[
+				"driverba",
+				"dtaxi/dtaxi-common-api/models/driver-basic.js"
+			],
+			[
+				"thrift",
+				"dtaxi/dtaxi-data-access-thrift/service.thrift"
+			],
+			[
+				"server.t",
+				"dtaxi/dtaxi-php-server/vendor/yiisoft/yii2/web/ServerErrorHttpException.php"
+			],
+			[
+				"service",
+				"dtaxi/dtaxi-data-access-thrift/service.thrift"
+			],
+			[
+				"trip.thr",
+				"dtaxi/dtaxi-data-access-thrift/models/trip.thrift"
+			],
+			[
+				"nexexda",
+				"nexex-data-access/gen-nodejs/NexExDataService.js"
+			],
+			[
+				"shared",
+				"nexex-data-access-thrift/shared.thrift"
+			],
+			[
+				"sandbox",
+				"frontend/controllers/SandboxController.php"
+			],
+			[
+				"commonmodelmercha",
+				"common/models/MerchantTransaction.php"
+			],
+			[
+				"merchantcontroll",
+				"backend/controllers/MerchantController.php"
+			],
+			[
+				"sandboxtran",
+				"backend/controllers/SandboxTransactionController.php"
+			],
+			[
+				"wm",
+				"common/wmservice/WMService.php"
+			],
+			[
+				"frontendpay",
+				"frontend/controllers/PaymentController.php"
+			],
+			[
+				"paymentfo",
+				"common/forms/PaymentForm.php"
+			],
+			[
+				"mechantlo",
+				"common/models/MerchantLog.php"
+			],
+			[
+				"commonpay",
+				"common/forms/PaymentForm.php"
+			],
+			[
+				"enviro",
+				"config/environment.js"
+			],
+			[
+				"ic-mu",
+				"app/components/ic-multiselect.js"
+			],
+			[
+				"ic-crea",
+				"app/components/ic-createselect.js"
+			],
+			[
+				"ic-aut",
+				"app/components/ic-autocomplete.js"
+			],
+			[
+				"modelsfood",
+				"app/models/food.js"
+			],
+			[
+				"controllersfoodnew",
+				"app/controllers/foods/new.js"
+			],
+			[
+				"radio-",
+				"app/templates/components/formgroup/radio-buttons.hbs"
+			],
+			[
+				"radio",
+				"app/components/fd-radio.js"
+			],
+			[
+				"formgroupradio",
+				"app/templates/components/formgroup/radiogroup.hbs"
+			],
+			[
+				"componentsradio",
+				"app/components/fd-radio.js"
+			],
+			[
+				"routeapplic",
+				"app/routes/application.js"
+			],
+			[
+				"controllerquestsnew",
+				"app/controllers/quests/new.js"
+			],
+			[
+				"quest.js",
+				"app/models/quest.js"
+			],
+			[
+				"global-s",
+				"app/mixins/controllers/global-search.js"
+			],
+			[
+				"viewheader",
+				"app/views/header.js"
+			],
+			[
+				"envi",
+				"config/environment.js"
+			],
+			[
+				"environ",
+				"config/environment.js"
+			],
+			[
+				"mixins.c",
+				"app/styles/app/misc/_mixins.scss"
+			],
+			[
+				"mixins/controller/globa",
+				"app/mixins/controllers/global-search.js"
+			],
+			[
+				"globalse",
+				"app/components/ic-globalsearch.js"
+			],
+			[
+				"routesea",
+				"app/routes/search.js"
+			],
+			[
+				"ic-gol",
+				"app/components/ic-globalsearch.js"
+			],
+			[
+				"ic-",
+				"app/components/ic-autocomplete.js"
+			],
+			[
+				"resta",
+				"app/models/restaurant.js"
+			],
+			[
+				"validators/u",
+				"app/validators/local/url.js"
+			],
+			[
+				"controllers/foods/new",
+				"app/controllers/foods/new.js"
+			],
+			[
+				"foodmodels",
+				"jakt/food/models.py"
+			],
+			[
+				"mixin",
+				"jakt/utility/mixins.py"
+			],
+			[
+				"mixins",
+				"jakt/utility/mixins.py"
+			],
+			[
+				"restaurantmodel",
+				"jakt/restaurant/models.py"
+			],
+			[
+				"ini",
+				"jakt/mailing/migrations/0001_initial.py"
+			],
+			[
+				"timet",
+				"protected/modules/penguin/widgets/views/timeTable.php"
+			],
+			[
+				"main.css",
+				"themes/penguin/share/css/main.css"
+			],
+			[
+				"main.",
+				"css/main.css"
+			],
+			[
+				"time",
+				"protected/modules/penguin/widgets/views/timeTable.php"
+			],
+			[
+				"timeta",
+				"protected/modules/penguin/widgets/TimeTableWidget.php"
+			],
+			[
+				"harr",
+				"protected/helpers/HArray.php"
+			],
+			[
+				"calendarc",
+				"protected/modules/penguin/controllers/CalendarController.php"
+			],
+			[
+				"loginfo",
+				"protected/modules/user/models/LoginForm.php"
+			],
+			[
+				"apisite",
+				"protected/modules/api/controllers/SiteController.php"
+			],
+			[
+				"tran",
+				"protected/messages/en/translation.php"
+			],
+			[
+				"appoint",
+				"protected\\models\\Appointment.php"
+			],
+			[
+				"setting",
+				"protected\\modules\\admin\\controllers\\SettingController.php"
+			],
+			[
+				"config.lo",
+				"protected\\config\\config.local.php"
+			],
+			[
+				"main",
+				"protected\\config\\main.php"
+			],
+			[
+				"main.re.js",
+				"themes\\65doctor\\js\\main.res.js"
+			],
+			[
+				"main.php",
+				"protected\\config\\main.php"
+			],
+			[
+				"view.php",
+				"protected\\messages\\en\\view.php"
+			],
+			[
+				"view",
+				"protected\\messages\\vi\\view.php"
+			],
+			[
+				"doctor_pro",
+				"protected\\modules\\member\\views\\users\\doctor_profile.php"
+			],
+			[
+				"doctor",
+				"protected\\models\\Doctor.php"
+			],
+			[
+				"spec",
+				"protected\\models\\Specialty.php"
+			],
+			[
+				"specialt",
+				"protected\\models\\Specialty.php"
+			],
+			[
+				"sitecontr",
+				"protected\\controllers\\SiteController.php"
+			],
+			[
+				"style2",
+				"themes\\65doctor\\css\\style2.css"
+			],
+			[
+				"select",
+				"themes\\65doctor\\css\\select2.css"
+			],
+			[
+				"advansearc",
+				"protected\\views\\search\\advanceSearch.php"
+			],
+			[
+				"form.css",
+				"themes\\65doctor\\admin\\css\\form.css"
+			],
+			[
+				"2001",
+				"db\\20140308.sql"
+			],
+			[
+				"doc65",
+				"themes\\65doctor\\js\\doc65.drag.js"
+			],
+			[
+				"exportboo",
+				"protected\\modules\\admin\\views\\export\\booking.php"
+			],
+			[
+				"activere",
+				"protected\\components\\ActiveRecord.php"
+			],
+			[
+				"booki",
+				"protected\\models\\Booking.php"
+			],
+			[
+				"doctor.php",
+				"protected\\models\\Doctor.php"
+			],
+			[
+				"article",
+				"protected\\models\\Articles.php"
+			],
+			[
+				"2014",
+				"db\\20140308.sql"
+			],
+			[
+				"form.cs",
+				"themes\\65doctor\\admin\\css\\form.css"
+			],
+			[
+				"woringt",
+				"protected\\modules\\admin\\views\\clinic\\workingTime.php"
+			],
+			[
+				"addtimeslot",
+				"protected\\modules\\admin\\views\\manageappointment\\_formaddtimeslot.php"
+			],
+			[
+				"excel",
+				"protected\\models\\ExcelBooking.php"
+			],
+			[
+				"active",
+				"protected\\components\\ActiveRecord.php"
+			],
+			[
+				"doc65do",
+				"themes\\65doctor\\js\\doc65.doctor.js"
+			],
+			[
+				"export",
+				"protected\\modules\\admin\\controllers\\ExportController.php"
+			],
+			[
+				"_formb",
+				"protected\\modules\\admin\\views\\buffer\\_formBuffer.php"
+			],
+			[
+				"transl",
+				"protected\\messages\\en\\translation.php"
+			],
+			[
+				"searchcon",
+				"protected\\controllers\\SearchController.php"
+			],
+			[
+				"select2",
+				"themes\\65doctor\\css\\select2.css"
+			],
+			[
+				"combox",
+				"themes\\65doctor\\js\\jquery.combobox.js"
+			],
+			[
+				"bookin",
+				"protected\\models\\Booking.php"
+			],
+			[
+				"expo",
+				"protected\\modules\\admin\\controllers\\ExportController.php"
+			],
+			[
+				"booking.php",
+				"protected\\models\\Booking.php"
+			],
+			[
+				"booking",
+				"html\\booking-details.html"
+			],
+			[
+				"_formbuffer",
+				"protected\\modules\\admin\\views\\buffer\\_formBuffer.php"
+			],
+			[
+				"doc65se",
+				"themes\\65doctor\\js\\doc65.service.js"
+			],
+			[
+				"doc65.ex",
+				"themes\\65doctor\\js\\doc65.export.js"
+			],
+			[
+				"global",
+				"themes\\65doctor\\js\\doc65.global.js"
+			],
+			[
+				"doc65.se",
+				"themes\\65doctor\\js\\doc65.service.js"
+			],
+			[
+				"activerecord",
+				"protected\\components\\ActiveRecord.php"
+			],
+			[
+				"searchco",
+				"protected\\controllers\\SearchController.php"
+			],
+			[
+				"clinic",
+				"protected\\models\\Clinic.php"
+			],
+			[
+				"form",
+				"themes\\65doctor\\admin\\css\\form.css"
+			],
+			[
+				"creatapp",
+				"protected\\commands\\CreateAppointmentCommand.php"
+			],
+			[
+				"managebuffer",
+				"protected\\modules\\admin\\views\\buffer\\manageBuffers.php"
+			],
+			[
+				"editbu",
+				"protected\\modules\\admin\\views\\buffer\\editBuffer.php"
+			],
+			[
+				"buffer",
+				"protected\\models\\Buffers.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 213.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,8 +1,8 @@
-import { Stream } from 'xstream';
 import { DOMSource, VNode } from '@cycle/dom';
 import { StateSource } from 'cycle-onionify';
+import { Stream } from 'xstream';
 
-export type IAction = {
+export interface IAction {
   payload?: string;
   type: string;
 }
@@ -20,7 +20,6 @@ export interface ISources<T> {
   DOM: DOMSource;
   onion: StateSource<T>;
 }
-
 
 export interface ISinks<T> {
   DOM: Stream<VNode>;

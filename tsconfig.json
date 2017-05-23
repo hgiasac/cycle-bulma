@@ -17,5 +17,9 @@
   },
   "files": [
     "src/index.ts"
+  ],
+  "filesGlob": [
+    "typings.d.ts",
+    "src/**/*.ts"
   ]
 }

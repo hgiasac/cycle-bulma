@@ -1,11 +1,11 @@
-import xs, { Stream } from 'xstream';
 import { div } from '@cycle/dom';
 import isolate from '@cycle/isolate';
-import { mix, pick, Lens } from 'cycle-onionify';
-import { IInputListState, ISources, ISinks, Reducer, IItemState } from './interfaces';
+import { Lens, mix, pick } from 'cycle-onionify';
+import xs, { Stream } from 'xstream';
+import { IInputListState, IItemState, ISinks, ISources, Reducer } from './interfaces';
 import Item from './Item';
 
-const itemLens = function<T>(index: number): Lens<IInputListState<T>, IItemState<T>> {
+const itemLens = <T>(index: number): Lens<IInputListState<T>, IItemState<T>> => {
   return {
     get: (state) => {
       return state.items[index];
@@ -16,30 +16,30 @@ const itemLens = function<T>(index: number): Lens<IInputListState<T>, IItemState
         return {
           ...state,
           items: newList,
-        }
+        };
       }
       return {
         ...state,
         items: state.items.map((val: any, i: number) => i === index ? childState : val),
-      }
-    }
-  }
+      };
+    },
+  };
 
-}
+};
 
 export default function List<T>(sources: ISources<T>): ISinks<T> {
   const state$ = sources.onion.state$;
 
-  const childrenSinks$ = state$.map(state =>
+  const childrenSinks$ = state$.map((state) =>
     state && state.items ? state.items.map((_, i) => {
       return isolate(Item, { onion: itemLens(i) })(sources);
-    }) : []
+    }) : [],
   );
 
   const vdom$ = childrenSinks$
     .compose(pick('DOM'))
     .compose(mix(xs.combine))
-    .map(itemVNodes => div(itemVNodes));
+    .map((itemVNodes) => div(itemVNodes));
 
   const childReducer$ = childrenSinks$
     .compose(pick('onion'))

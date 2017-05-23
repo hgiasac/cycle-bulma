@@ -1,7 +1,7 @@
-import { Stream } from 'xstream';
 import { DOMSource, VNode } from '@cycle/dom';
-import { HTTPSource, RequestInput } from '@cycle/http';
+import { HTTPSource, RequestOptions } from '@cycle/http';
 import { StateSource } from 'cycle-onionify';
+import { Stream } from 'xstream';
 import { IValidationRule } from '../../../validator';
 
 export interface IAction {
@@ -26,16 +26,16 @@ export interface IButtonProperties {
   cancelClass?: string;
 }
 
-export interface IControlState {
+export interface IControlState<T> {
   attributeName: string;
-  payload: any;
+  payload: T;
   isValid?: boolean;
   validators?: IValidationRule[];
 }
 
 export interface IFormState {
   isValid?: boolean;
-  invalidAttribute: string;
+  invalidAttribute?: string;
   className?: string;
   submitText?: string;
   submitClass?: string;
@@ -45,24 +45,25 @@ export interface IFormState {
   cancelClass?: string;
 }
 
-export type ControlSinks = (sources: ISources) => ISinks;
-export type Reducer = (state: IFormState) => IFormState;
+export type Reducer<T extends IFormState> = (state: T) => T;
 
-export interface ISources {
+export interface ISources<T> {
   DOM: DOMSource;
-  onion: StateSource<any>;
+  onion: StateSource<T>;
   HTTP?: HTTPSource;
 }
 
-export interface ItemSinks {
+export interface ISinks<T extends IFormState> {
+  controlSinks: Array<IControlSinks<T>>;
   DOM: Stream<VNode>;
-  onion: Stream<Reducer>;
-  HTTP?: Stream<RequestInput>;
+  onion: Stream<Reducer<T>>;
+  HTTP?: Stream<RequestOptions>;
 }
 
-export interface ISinks {
+export interface IControlSinks<T> {
   DOM: Stream<VNode>;
-  onion: Stream<Reducer>;
-  controlSinks: ItemSinks[];
-  HTTP?: Stream<RequestInput>;
+  onion: Stream<Reducer<T>>;
+  HTTP?: Stream<RequestOptions>;
 }
+
+export type ControlComponent<T> = (sources: ISources<T>) => IControlSinks<T>;

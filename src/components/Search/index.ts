@@ -1,18 +1,18 @@
-import xs, { Stream } from 'xstream';
-import { Lens } from 'cycle-onionify';
 import isolate from '@cycle/isolate';
-import { ISearchState, ISources, ISinks, Reducer } from './interfaces';
+import { Lens } from 'cycle-onionify';
+import xs, { Stream } from 'xstream';
+import { ISearchState, ISinks, ISources, Reducer } from './interfaces';
 
-import List from './List';
 import intent from './intent';
-import model from './model';
+import List from './List';
+import model, { SearchState } from './model';
 import view from './view';
 
-export default function Search<T>(sources: ISources<T>): ISinks<T> {
+export function Search<T>(sources: ISources<T>): ISinks<T> {
 
   const identityLens: Lens<ISearchState<T>, ISearchState<T>> = {
-    get: state => state,
-    set: (_, childState) => childState
+    get: (state) => state,
+    set: (_, childState) => childState,
   };
 
   const state$ = sources.onion.state$;
@@ -33,4 +33,5 @@ export default function Search<T>(sources: ISources<T>): ISinks<T> {
 
 export {
   ISearchState,
-}
+  SearchState,
+};

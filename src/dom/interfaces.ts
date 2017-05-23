@@ -2,6 +2,7 @@
 export interface ISelectAttribute<T> {
   hasContainer?: boolean;
   containerClass?: string;
+  className?: string;
   isGrouped?: boolean;
   value?: any;
   selected?: T | any;
@@ -28,7 +29,6 @@ export interface ICheckboxAttirbute {
   value?: string;
   checked?: boolean;
 }
-
 
 export interface IInputAttributeEx {
   hasContainer?: boolean;

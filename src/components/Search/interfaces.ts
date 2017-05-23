@@ -1,17 +1,19 @@
-import { Stream } from 'xstream';
 import { DOMSource, VNode } from '@cycle/dom';
 import { StateSource } from 'cycle-onionify';
+import { Stream } from 'xstream';
 import { ISelectState } from '../Form/Select';
 
 export interface ISearchState<T> extends ISelectState<T> {
-  payload: string;
-  isListVisible: boolean;
-  inputting: boolean;
-  currentIndex: number;
-  hoverIndex: number;
+  payload?: string;
+  inputClass?: string;
+  isListVisible?: boolean;
+  inputting?: boolean;
+  isLoading?: boolean;
+  currentIndex?: number;
+  hoverIndex?: number;
   listFocused?: boolean;
   inputFocused?: boolean;
-  filteredOptions: T[];
+  filteredOptions?: T[];
   placeholder?: string;
   contentFn?: (option: T) => any;
 }
@@ -30,10 +32,7 @@ export interface ISinks<T> {
 
 export type Reducer<T> = (prev?: ISearchState<T>) => ISearchState<T>;
 
-
-export type IAction = {
+export interface IAction {
   payload?: string;
   type: string;
 }
-
-

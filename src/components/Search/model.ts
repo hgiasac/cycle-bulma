@@ -1,8 +1,7 @@
 import xs, { Stream } from 'xstream';
-import { IItemState } from './Item';
-import { IAction, Reducer, ISearchState } from './interfaces';
+import { IAction, ISearchState, Reducer } from './interfaces';
 
-export function defaultArrayFilter<T>(payload: string, item: IItemState<T>, state: ISearchState<T>): boolean {
+export function defaultArrayFilter<T>(payload: string, item: T, state: ISearchState<T>): boolean {
   if (typeof item === 'object') {
     return item[state.valueKey].search(payload) !== -1;
   }
@@ -16,81 +15,106 @@ export function defaultFilter<T>(payload: string, state: ISearchState<T>): T[] {
   return state.options.filter((o: T) => state.filterFn(data, o, state));
 }
 
+export function SearchState<T>(options?: ISearchState<T>): ISearchState<T> {
+
+  const state = {
+
+    currentIndex: -1,
+    filterFn: defaultArrayFilter,
+    filteredOptions: [],
+
+    hoverIndex: -1,
+    inputFocused: false,
+    inputting: false,
+    isListVisible: false,
+    listFocused: false,
+    options: [],
+    payload: '',
+    selected: null,
+  };
+
+  if (options) {
+    return Object.assign(state, options);
+  }
+
+  return state;
+}
+
 export default function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
 
-  const defaultReducer$ = xs.of(function(prev?: ISearchState<T>): ISearchState<T> {
+  const defaultReducer$ = xs.of((prev?: ISearchState<T>): ISearchState<T> => {
     const state = Object.assign({
 
+      currentIndex: -1,
+      filterFn: defaultArrayFilter,
       filteredOptions: [],
-      payload: '',
-
+      inputFocused: false,
       inputting: false,
       isListVisible: false,
       listFocused: false,
-      inputFocused: false,
-      currentIndex: -1,
       options: [],
+      payload: '',
+
       selected: null,
-      filterFn: defaultArrayFilter,
     }, prev || {});
 
     return state as any as ISearchState<T>;
   });
 
   const inputReducer$ = action$
-    .filter(ev => ev.type === 'input')
-    .map(ev => function(prev: ISearchState<T>): ISearchState<T> {
+    .filter((ev) => ev.type === 'input')
+    .map((ev) => (prev: ISearchState<T>): ISearchState<T> => {
       const filteredOptions = defaultFilter(ev.payload, prev).slice(0, 10);
 
       return {
         ...prev,
-        inputting: true,
         currentIndex: -1,
         hoverIndex: -1,
-        payload: ev.payload,
+        inputting: true,
         isListVisible: (filteredOptions && filteredOptions.length > 0),
-        filteredOptions: filteredOptions,
-      }
+        payload: ev.payload,
+        filteredOptions,
+      };
     });
 
   const focusReducer$ = action$
-    .filter(ev => ev.type === 'focusInput')
-    .mapTo(function(prev: ISearchState<T>): ISearchState<T> {
+    .filter((ev) => ev.type === 'focusInput')
+    .mapTo((prev: ISearchState<T>): ISearchState<T> => {
       return {
         ...prev,
-        inputting: true,
         inputFocused: true,
-        listFocused: false,
+        inputting: true,
         isListVisible: false,
-      }
+        listFocused: false,
+      };
     });
 
   const blurReducer$ = action$
-    .filter(ev => ev.type === 'blurInput')
-    .mapTo(function(prev: ISearchState<T>): ISearchState<T> {
+    .filter((ev) => ev.type === 'blurInput')
+    .mapTo((prev: ISearchState<T>): ISearchState<T> => {
       if (prev.filteredOptions[prev.hoverIndex]) {
         return prev;
       }
 
       return {
         ...prev,
-        inputting: false,
         inputFocused: true,
-        listFocused: false,
+        inputting: false,
         isListVisible: false,
-      }
+        listFocused: false,
+      };
     });
 
   const exitReducer$ = action$
-    .filter(ev => ev.type === 'exitInput')
-    .mapTo(function (prev: ISearchState<T>): ISearchState<T> {
+    .filter((ev) => ev.type === 'exitInput')
+    .mapTo((prev: ISearchState<T>): ISearchState<T> => {
       return {
         ...prev,
-        inputting: false,
         inputFocused: false,
-        listFocused: false,
+        inputting: false,
         isListVisible: false,
-      }
+        listFocused: false,
+      };
     });
 
   return xs.merge(
@@ -98,6 +122,6 @@ export default function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
     focusReducer$,
     blurReducer$,
     inputReducer$,
-    exitReducer$
+    exitReducer$,
   );
 }

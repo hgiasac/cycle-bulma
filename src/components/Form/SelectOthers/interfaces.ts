@@ -1,6 +1,6 @@
-import { Stream } from 'xstream';
 import { DOMSource, VNode } from '@cycle/dom';
 import { StateSource } from 'cycle-onionify';
+import { Stream } from 'xstream';
 import { IAction as SAction, ISelectState } from '../Select/interfaces';
 
 export type IAction = SAction;
@@ -8,7 +8,7 @@ export type IAction = SAction;
 export interface ISelectOthersState<T> extends ISelectState<T> {
   isOthers?: boolean;
   otherValue?: string;
-};
+}
 
 export type Reducer<T> = (state: ISelectOthersState<T>) => ISelectOthersState<T>;
 

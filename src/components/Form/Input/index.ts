@@ -1,14 +1,14 @@
-import { ISources, ISinks, IState } from './interfaces';
 import intent from './intent';
-import model, { newInputState } from './model';
+import { ISinks, ISources, IState } from './interfaces';
+import model, { InputState } from './model';
 import view from './view';
 
 export {
-  newInputState,
-  IState as IInputState
+  InputState,
+  IState as IInputState,
 };
 
-export default function Input(sources: ISources): ISinks {
+export function Input(sources: ISources): ISinks {
 
   const state$ = sources.onion.state$;
   const action$ = intent(sources.DOM);
@@ -17,6 +17,6 @@ export default function Input(sources: ISources): ISinks {
 
   return {
     DOM: vdom$,
-    onion: reducer$
-  }
+    onion: reducer$,
+  };
 }

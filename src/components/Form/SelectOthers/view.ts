@@ -1,11 +1,11 @@
+import { div, input, label, p, VNode } from '@cycle/dom';
 import { Stream } from 'xstream';
-import { div, label, input, p, VNode } from '@cycle/dom';
-import { ISelectOthersState } from './interfaces';
 import { getValidClass, select } from '../../../dom';
+import { ISelectOthersState } from './interfaces';
 
 export default function view<T>(state$: Stream<ISelectOthersState<T>>): Stream<VNode> {
 
-  return state$.map(state => {
+  return state$.map((state) => {
     const sLabel = state.label || null;
     const validClass = getValidClass(state.isValid);
 
@@ -15,24 +15,24 @@ export default function view<T>(state$: Stream<ISelectOthersState<T>>): Stream<V
         div('.columns', [
           select('', {
             ...state,
+            containerClass: '.column',
             label: null,
-            containerClass: '.column'
           }) as VNode,
           div('.field.column', [
             p('.control', [
               input('.input.others' + validClass, {
-                attrs: { value: state.payload }
+                attrs: { value: state.payload },
               }),
             ]),
-          ])
-        ])
+          ]),
+        ]),
       ]);
     }
 
     return select('', {
       ...state,
+      containerClass: state.containerClass || '',
       label: sLabel,
-      containerClass: state.containerClass || ''
     }) as VNode;
   });
 }

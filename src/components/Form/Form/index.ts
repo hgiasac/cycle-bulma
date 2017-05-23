@@ -1,14 +1,13 @@
-import xs, { Stream } from 'xstream';
-import { RequestInput } from '@cycle/http';
 import isolate from '@cycle/isolate';
 import { Lens } from 'cycle-onionify';
-import { IFormState, IControlState, ControlSinks, IProperties, Reducer, ISources, ISinks } from './interfaces';
+import xs, { Stream } from 'xstream';
+import { ControlComponent, IControlSinks, IControlState, IFormState, IProperties, ISinks, ISources, Reducer } from './interfaces';
 import view, { renderButtons } from './view';
 
-function createControlSinks(sources: ISources, attributeName: string, control: ControlSinks) {
+function createControlSinks<T>(sources: ISources<T>, attributeName: string, control: ControlComponent<any>) {
 
-  const controlLens: Lens<IFormState, IControlState> = {
-    get: state => {
+  const controlLens: Lens<IFormState, IControlState<any>> = {
+    get: (state) => {
       if (state[attributeName] && !state[attributeName].attributeName) {
         state[attributeName].attributeName = attributeName;
       }
@@ -22,22 +21,21 @@ function createControlSinks(sources: ISources, attributeName: string, control: C
 
       newState[attributeName] = childState;
 
-
       newState.invalidAttribute = '';
 
-      for (let attrName in newState) {
+      Object.keys(newState).every((attrName) => {
 
-        let controlState: IControlState = newState[attrName];
+        const controlState = newState[attrName];
         if (controlState && typeof controlState === 'object') {
           newState.isValid = ((controlState.validators && controlState.validators.length > 0)
             || controlState.isValid !== undefined ? controlState.isValid === true : true);
           if (newState.isValid === false) {
             newState.invalidAttribute = attrName;
-            break;
+            return false;
           }
         }
-
-      }
+        return true;
+      });
 
       return newState;
     },
@@ -46,39 +44,39 @@ function createControlSinks(sources: ISources, attributeName: string, control: C
   return isolate(control, { onion: controlLens })(sources);
 }
 
+function Form<T>(sources: ISources<T>, properties: IProperties<T>): ISinks<T> {
 
-function Form<T>(sources: ISources, properties: IProperties<T>): ISinks {
-
-  const controlSinks = [];
-
-  for (let attributeName in properties.components) {
-    const sinks = typeof properties.components[attributeName] === 'function'
+  const controlSinks: Array<IControlSinks<any>> = Object.keys(properties.components).map((attributeName) => {
+    return typeof properties.components[attributeName] === 'function'
       ? createControlSinks(sources, attributeName, properties.components[attributeName])
       : properties.components[attributeName];
-    controlSinks.push(sinks);
-  }
+  });
 
   const state$ = sources.onion.state$;
   const reducer$ = xs.merge(
-    ...controlSinks.map(s => s.onion),
-  ) as Stream<Reducer>;
-  const http$ = controlSinks.filter(s => s.HTTP)
-    .map(s => s.HTTP);
-  const vdom$ = view(state$, controlSinks.map(s => s.DOM), properties.layout);
+    ...controlSinks.map((s) => s.onion),
+  ) as Stream<Reducer<T>>;
+  const http$$ = controlSinks.filter((s) => s.HTTP)
+    .map((s) => s.HTTP);
+
+  const http$ = http$$ && http$$.length > 0 ? xs.merge(...http$$) : null;
+  const vdom$ = view(state$, controlSinks.map((s) => s.DOM), properties.layout);
 
   return {
+    controlSinks,
     DOM: vdom$,
+    HTTP: http$,
     onion: reducer$,
-    HTTP: http$ as any as Stream<RequestInput>,
-    controlSinks: controlSinks,
-  }
+  };
 }
-
 
 export {
   createControlSinks,
   IProperties,
   IFormState,
   Form,
-  renderButtons
-}
+  renderButtons as renderFormButtons,
+  ISinks as IFormSinks,
+  ISources as IFormSources,
+  Reducer as FormReducer,
+};

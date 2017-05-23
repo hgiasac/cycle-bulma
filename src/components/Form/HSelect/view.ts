@@ -16,18 +16,17 @@ export function renderOptions<T>(state: ISelectState<T>): VNode[] {
           state.contentKey(opt) : opt[state.contentKey];
       }
       return div('.item' + (opt === state.selected ? '.is-active' : ''), {
-        attrs: { value: value },
+        attrs: { value },
       }, content);
     });
   } else if (typeof state.options === 'object') {
-    for (let k in state.options) {
+    Object.keys(state.options).forEach((k) => {
       options.push(
         div('.item' + (k === state.selected ? '.is-active' : ''), {
           attrs: { value: k },
-        }, [state.options[k]]
-        )
+        }, [state.options[k]]),
       );
-    }
+    });
   }
 
   return options;
@@ -45,8 +44,8 @@ export default function view<T>(state$: Stream<ISelectState<T>>): Stream<VNode> 
       p('.control', [
         div(validClass, [
           div('.list', options),
-        ])
-      ])
+        ]),
+      ]),
     ]);
   });
 }

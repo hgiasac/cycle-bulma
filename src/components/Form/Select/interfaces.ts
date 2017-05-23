@@ -1,8 +1,8 @@
-import { Stream } from 'xstream';
 import { DOMSource, VNode } from '@cycle/dom';
 import { StateSource } from 'cycle-onionify';
-import { IValidationRule } from '../../../validator';
+import { Stream } from 'xstream';
 import { ISelectAttribute } from '../../../dom';
+import { IValidationRule } from '../../../validator';
 
 export interface IAction {
   payload?: string | null;
@@ -16,7 +16,7 @@ export interface ISelectState<T> extends ISelectAttribute<T> {
   isDisabled?: boolean;
   validators?: IValidationRule[];
   filterFn?: (payload: string, o: T, prev: ISelectState<T>) => boolean;
-};
+}
 
 export type Reducer<T> = (state: ISelectState<T>) => ISelectState<T>;
 

@@ -1,5 +1,5 @@
 import { Stream } from 'xstream';
-import { IState, ISources, ISinks } from './interfaces';
+import { ISinks, ISources, IState } from './interfaces';
 
 import intent from './intent';
 import model from './model';
@@ -16,9 +16,9 @@ export default function Option<T>(sources: ISources<T>): ISinks<T> {
   return {
     DOM: vdom$,
     onion: reducer$,
-  }
+  };
 }
 
 export {
-  IState as IItemState
-}
+  IState as IItemState,
+};

@@ -1,10 +1,10 @@
 import xs, { Stream } from 'xstream';
-import { IAction, IState, Reducer } from './interfaces';
 import { validate } from '../../../validator';
+import { IAction, IState, Reducer } from './interfaces';
 
 export default function model(action$: Stream<IAction>): Stream<Reducer> {
 
-  const defaultReducer$ = xs.of(function (prev: IState): IState {
+  const defaultReducer$ = xs.of((prev: IState): IState => {
 
     const state: IState = {
       attributeName: '',
@@ -21,9 +21,9 @@ export default function model(action$: Stream<IAction>): Stream<Reducer> {
     }
 
     if (prev.validators && prev.validators.length > 0) {
-      prev.validators = prev.validators.map(v => ({
+      prev.validators = prev.validators.map((v) => ({
         ...v,
-        attributeName: prev.attributeName
+        attributeName: prev.attributeName,
       }));
     }
 
@@ -31,15 +31,15 @@ export default function model(action$: Stream<IAction>): Stream<Reducer> {
   });
 
   const blurReducer$ = action$
-    .filter(ev => ev.type === 'blur')
-    .map(ev => function (prev: IState): IState {
+    .filter((ev) => ev.type === 'blur')
+    .map((ev) => (prev: IState): IState => {
       const validationResult = validate(prev.validators, ev.payload);
 
       return {
         ...prev,
         payload: ev.payload,
-        ...validationResult
-      }
+        ...validationResult,
+      };
     });
 
   return xs.merge(defaultReducer$, blurReducer$);

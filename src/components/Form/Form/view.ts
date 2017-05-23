@@ -1,19 +1,19 @@
+import { button, div, VNode } from '@cycle/dom';
 import xs, { Stream } from 'xstream';
-import { div, button, VNode } from '@cycle/dom';
-import { Layout, IButtonProperties } from './interfaces';
+import { IButtonProperties, Layout } from './interfaces';
 
 export function renderButtons(properties: IButtonProperties): VNode {
-  let buttons = [
+  const buttons = [
     button('.button.is-primary.submit' + (properties.submitClass || ''), {
       props: {
-        disabled: properties.isValid !== true
-      }
+        disabled: properties.isValid !== true,
+      },
     }, properties.submitText || 'Submit'),
   ];
 
   if (properties.canCancel) {
     const cancelDom = button('.button.cancel' + (properties.cancelClass || ''), [
-      properties.cancelText || 'Cancel'
+      properties.cancelText || 'Cancel',
     ]);
 
     if (properties.cancelFirst) {
@@ -23,11 +23,10 @@ export function renderButtons(properties: IButtonProperties): VNode {
     }
   }
 
-  return div('.field' + (properties.canCancel ? '.is-group' : ''), buttons)
+  return div('.field' + (properties.canCancel ? '.is-group' : ''), buttons);
 }
 
-export default function view<T>(state$: Stream<T>, controlDOM$: Stream<VNode>[],
-  layoutView?: Layout<T>): Stream<VNode> {
+export default function view<T>(state$: Stream<T>, controlDOM$: Array<Stream<VNode>>, layoutView?: Layout<T>): Stream<VNode> {
 
   return xs.combine(state$, ...controlDOM$)
     .map((items) => {

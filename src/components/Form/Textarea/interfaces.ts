@@ -1,8 +1,8 @@
-import { Stream } from 'xstream';
 import { DOMSource, VNode } from '@cycle/dom';
 import { StateSource } from 'cycle-onionify';
-import { IValidationRule } from '../../../validator';
+import { Stream } from 'xstream';
 import { IInputAttributeEx } from '../../../dom';
+import { IValidationRule } from '../../../validator';
 
 export interface IAction {
   payload?: string;
@@ -14,7 +14,7 @@ export interface IState extends IInputAttributeEx {
   payload: any;
   isDisabled?: boolean;
   validators?: IValidationRule[];
-};
+}
 
 export type Reducer = (state: IState) => IState;
 

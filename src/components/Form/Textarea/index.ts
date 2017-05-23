@@ -1,10 +1,9 @@
-import { ISources, ISinks } from './interfaces';
 import intent from './intent';
+import { ISinks, ISources } from './interfaces';
 import model from './model';
 import view from './view';
 
-
-export default function Textarea(sources: ISources): ISinks {
+export function Textarea(sources: ISources): ISinks {
 
   const state$ = sources.onion.state$;
   const action$ = intent(sources.DOM);
@@ -13,6 +12,6 @@ export default function Textarea(sources: ISources): ISinks {
 
   return {
     DOM: vdom$,
-    onion: reducer$
-  }
+    onion: reducer$,
+  };
 }

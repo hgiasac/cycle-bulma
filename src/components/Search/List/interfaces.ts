@@ -1,6 +1,6 @@
-import { Stream } from 'xstream';
 import { DOMSource, VNode } from '@cycle/dom';
 import { StateSource } from 'cycle-onionify';
+import { Stream } from 'xstream';
 import { IState } from '../Item/interfaces';
 
 export type IListState<T> = Array<IState<T>>;

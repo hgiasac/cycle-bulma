@@ -1,6 +1,6 @@
+import { button, div, DOMSource, span, VNode } from '@cycle/dom';
 import { Stream } from 'xstream';
-import { div, button, span, DOMSource, VNode } from '@cycle/dom';
-import { IAction, ItemReducer, IItemState, IItemSources, IItemSinks } from './interfaces';
+import { IAction, IItemSinks, IItemSources, IItemState, ItemReducer } from './interfaces';
 
 function intent(domSource: DOMSource): Stream<IAction> {
 
@@ -14,14 +14,13 @@ function intent(domSource: DOMSource): Stream<IAction> {
 function model<T>(action$: Stream<IAction>): Stream<ItemReducer<T>> {
 
   const deleteReducer$ = action$
-    .filter(ev => ev.type === 'delete')
-    .mapTo(function(_: IItemState<T>): IItemState<T> {
+    .filter((ev) => ev.type === 'delete')
+    .mapTo((_: IItemState<T>): IItemState<T> => {
       return void 0;
     });
 
   return deleteReducer$;
 }
-
 
 function view<T>(state$: Stream<IItemState<T>>): Stream<VNode> {
 
@@ -29,7 +28,7 @@ function view<T>(state$: Stream<IItemState<T>>): Stream<VNode> {
 
     return div('.columns', [
       div('.column', [
-        span('', state.content)
+        span('', state.content),
       ]),
       div('.column.is-1', [button('.delete')]),
     ]);
@@ -46,5 +45,5 @@ export default function Item<T>(sources: IItemSources<T>): IItemSinks<T> {
   return {
     DOM: vdom$,
     onion: reducer$ as any as Stream<ItemReducer<T>>,
-  }
+  };
 }

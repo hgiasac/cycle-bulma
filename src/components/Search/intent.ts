@@ -1,5 +1,5 @@
-import xs, { Stream } from 'xstream';
 import { DOMSource } from '@cycle/dom';
+import xs, { Stream } from 'xstream';
 import { IAction } from './interfaces';
 
 export default function intent(domSource: DOMSource): Stream<IAction> {
@@ -7,9 +7,9 @@ export default function intent(domSource: DOMSource): Stream<IAction> {
   const inputAction$ = domSource
     .select('.search-input')
     .events('input')
-    .map(ev => ({
+    .map((ev) => ({
+      payload: (ev.target as HTMLInputElement).value,
       type: 'input',
-      payload: (ev.target as HTMLInputElement).value
     }));
 
   const exitAction$ = domSource

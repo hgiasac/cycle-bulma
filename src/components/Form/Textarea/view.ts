@@ -1,21 +1,21 @@
-import { Stream } from 'xstream';
 import { VNode } from '@cycle/dom';
-import { IState } from './interfaces';
+import { Stream } from 'xstream';
 import { textarea } from '../../../dom';
+import { IState } from './interfaces';
 
 export default function view(state$: Stream<IState>): Stream<VNode> {
 
-  return state$.map(state => {
+  return state$.map((state) => {
     if (!state) {
       return null;
     }
     return textarea('', {
       props: {
-        value: state.payload,
         disabled: state.isDisabled,
-      }
+        value: state.payload,
+      },
     }, {
-      ...state
+      ...state,
       }) as VNode;
   });
 

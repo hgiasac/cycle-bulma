@@ -1,8 +1,8 @@
 import { div, ul, VNode } from '@cycle/dom';
 import { Stream } from 'xstream';
-import { ISelectOthersState } from '../SelectOthers';
-import { renderOptions } from '../HSelect/view';
 import { input } from '../../../dom';
+import { renderOptions } from '../HSelect/view';
+import { ISelectOthersState } from '../SelectOthers';
 
 export default function view<T>(state$: Stream<ISelectOthersState<T>>): Stream<VNode> {
   return state$.map((state) => {
@@ -15,9 +15,9 @@ export default function view<T>(state$: Stream<ISelectOthersState<T>>): Stream<V
         ul(validClass, options),
       ]),
       state.isOthers ? input('', {
-        attrs: { value: state.payload }
+        attrs: { value: state.payload },
       }, {
-        isValid: state.isValid
+        isValid: state.isValid,
       }) : null,
     ]);
   });

@@ -1,5 +1,5 @@
-import xs, { Stream } from 'xstream';
 import { DOMSource } from '@cycle/dom';
+import xs, { Stream } from 'xstream';
 import { IAction } from './interfaces';
 
 export default function intent(domSource: DOMSource): Stream<IAction> {

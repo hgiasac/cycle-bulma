@@ -1,4 +1,4 @@
-import { div, label, input, p, span, VNode } from '@cycle/dom';
+import { div, input, label, p, span, VNode } from '@cycle/dom';
 import { Stream } from 'xstream';
 import { ISelectState } from '../Select/interfaces';
 
@@ -19,39 +19,38 @@ export function renderOptions<T>(state: ISelectState<T>): VNode[] {
         label('.radio', [
           input('.radio-item', {
             props: {
-              type: 'radio',
-              value: value,
+              checked: opt === state.selected,
               name: state.attributeName,
-              checked: opt === state.selected
-            }
+              type: 'radio',
+              value,
+            },
           }),
           span('.outer', [
-            span('.inner')
+            span('.inner'),
           ]),
-          content
-        ])
+          content,
+        ]),
       ]);
     });
   } else if (typeof state.options === 'object') {
-    for (let k in state.options) {
-
+    Object.keys(state.options).forEach((k) => {
       options.push(
         p('.control', [
           label('.radio', [
             input('.radio-item', {
               props: {
+                checked: k === state.selected,
+                name: state.attributeName,
                 type: 'radio',
                 value: k,
-                name: state.attributeName,
-                checked: k === state.selected
-              }
+              },
             }),
-            span('', state.options[k])
-          ])
-        ])
+            span('', state.options[k]),
+          ]),
+        ]),
 
       );
-    }
+    });
   }
 
   return options;

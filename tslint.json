@@ -1,0 +1,17 @@
+{
+  "defaultSeverity": "warning",
+  "extends": ["tslint:latest"],
+  "rules": {
+    "quotemark": [true, "single"],
+    "jsx-no-lambda": true,
+    "curly": true,
+    "max-line-length": {
+      "severity": "error",
+      "options": 140
+    }
+  },
+  "jsRules": {
+    "curly": true
+  },
+  "rulesDirectory": []
+}

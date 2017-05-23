@@ -1,6 +1,6 @@
-import { Stream } from 'xstream';
 import { DOMSource, VNode } from '@cycle/dom';
 import { StateSource } from 'cycle-onionify';
+import { Stream } from 'xstream';
 import { IInputState } from '../Input';
 
 export interface IInputListState<T> {
@@ -9,9 +9,9 @@ export interface IInputListState<T> {
 }
 
 export interface IItemState<T> {
-  payload: T;
   content: string | VNode;
-};
+  payload: T;
+}
 
 export interface IAction {
   type: string;

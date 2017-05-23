@@ -1,5 +1,6 @@
-import xs, { Stream } from 'xstream';
+
 import { DOMSource } from '@cycle/dom';
+import xs, { Stream } from 'xstream';
 import { IAction } from './interfaces';
 
 export default function intent(domSource: DOMSource): Stream<IAction> {
@@ -8,17 +9,17 @@ export default function intent(domSource: DOMSource): Stream<IAction> {
     .events('click')
     .map((ev) => {
       return {
-        type: 'select',
         payload: (ev.currentTarget as HTMLLIElement).getAttribute('value'),
+        type: 'select',
       };
     });
 
   const inputAction$ = domSource.select('.others')
     .events('input')
-    .map(ev => ({
-      type: 'otherInput',
+    .map((ev) => ({
       payload: (ev.target as HTMLInputElement).value,
-    }))
+      type: 'otherInput',
+    }));
 
   return xs.merge(clickAction$, inputAction$);
 }

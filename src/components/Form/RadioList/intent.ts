@@ -7,8 +7,8 @@ export default function intent(domSource: DOMSource): Stream<IAction> {
   const clickAction$ = domSource.select('.radio-item')
     .events('click')
     .map((ev) => ({
+      payload: (ev.currentTarget as HTMLLIElement).getAttribute('value'),
       type: 'select',
-      payload: (ev.currentTarget as HTMLLIElement).getAttribute('value')
     }));
 
   return clickAction$;

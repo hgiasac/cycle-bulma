@@ -1,9 +1,9 @@
-import intent from './intent';
 import { ISinks, ISources } from '../Select/interfaces';
 import model from '../Select/model';
+import intent from './intent';
 import view from './view';
 
-export default function HSelect<T>(sources: ISources<T>): ISinks<T> {
+export function HSelect<T>(sources: ISources<T>): ISinks<T> {
 
   const state$ = sources.onion.state$;
   const action$ = intent(sources.DOM);

@@ -20,7 +20,7 @@ export interface ISinks {
   onion: Stream<Reducer>;
 }
 
-export type IAction = {
+export interface IAction {
   type: string;
   payload: string;
 }
@@ -29,4 +29,3 @@ export interface ISources {
   DOM: DOMSource;
   onion: StateSource<IState>;
 }
-

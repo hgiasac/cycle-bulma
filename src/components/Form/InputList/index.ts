@@ -1,27 +1,27 @@
-import xs, { Stream } from 'xstream';
 import {
-  a, div, i, input,
-  span, DOMSource, VNode
+  a, div, DOMSource, i,
+  input, span, VNode,
 } from '@cycle/dom';
 import isolate from '@cycle/isolate';
 import { Lens } from 'cycle-onionify';
-import { IAction, ISources, ISinks, IInputListState, Reducer } from './interfaces';
-import { newInputState } from '../Input';
+import xs, { Stream } from 'xstream';
+import { InputState } from '../Input';
+import { IAction, IInputListState, ISinks, ISources, Reducer } from './interfaces';
 
 import List from './List';
 
 export {
   IInputListState,
   List,
-}
+};
 
 function intent(domSource: DOMSource): Stream<IAction> {
 
   const inputAction$ = domSource.select('.input')
     .events('input')
-    .map(ev => ({
+    .map((ev) => ({
+      payload: (ev.target as HTMLInputElement).value,
       type: 'input',
-      payload: (ev.target as HTMLInputElement).value
     }));
 
   const addAction$ = domSource.select('.add')
@@ -31,48 +31,47 @@ function intent(domSource: DOMSource): Stream<IAction> {
   return xs.merge(inputAction$, addAction$);
 }
 
-
 function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
 
-  const defaultReducer$ = xs.of(function(prev?: IInputListState<T>): IInputListState<T> {
+  const defaultReducer$ = xs.of((prev?: IInputListState<T>): IInputListState<T> => {
     if (prev) {
       return prev;
     }
 
     return {
-      textInput: newInputState(),
-      items: []
-    }
+      items: [],
+      textInput: InputState(),
+    };
   });
 
   const inputReducer$ = action$
-    .filter(ev => ev.type === 'input')
-    .map(ev => function(prev: IInputListState<T>): IInputListState<T> {
+    .filter((ev) => ev.type === 'input')
+    .map((ev) => (prev: IInputListState<T>): IInputListState<T> => {
       return {
         ...prev,
         textInput: {
           ...prev.textInput,
           payload: ev.payload,
-        }
-      }
+        },
+      };
     });
 
   const addReducer$ = action$
-    .filter(ev => ev.type === 'add')
-    .mapTo(function(prev: IInputListState<T>): IInputListState<T> {
+    .filter((ev) => ev.type === 'add')
+    .mapTo((prev: IInputListState<T>): IInputListState<T> => {
       if (prev.textInput.payload) {
         const item = {
-          payload: prev.textInput.payload,
           content: prev.textInput.payload,
+          payload: prev.textInput.payload,
         };
 
         return {
           ...prev,
+          items: prev.items.concat([item]),
           textInput: {
             ...prev.textInput,
             payload: '',
           },
-          items: prev.items.concat([item]),
         };
       }
 
@@ -91,25 +90,24 @@ function view<T>(state$: Stream<IInputListState<T>>, listDOM$: Stream<VNode>): S
           input('.input', {
             props: {
               value: state.textInput.payload,
-            }
+            },
           }),
           a('.button-icon.add', [
             span('.icon', [
-              i('.fa.fa-plus')
-            ])
+              i('.fa.fa-plus'),
+            ]),
           ]),
         ]),
-        listDOM
+        listDOM,
       ]);
     });
 }
 
-
-export default function InputList<T>(sources: ISources<T>): ISinks<T> {
+export function InputList<T>(sources: ISources<T>): ISinks<T> {
 
   const identityLens: Lens<IInputListState<T>, IInputListState<T>> = {
-    get: state => state,
-    set: (_, childState) => childState
+    get: (state) => state,
+    set: (_, childState) => childState,
   };
 
   const state$ = sources.onion.state$;
