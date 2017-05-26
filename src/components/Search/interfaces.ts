@@ -15,6 +15,7 @@ export interface ISearchState<T> extends ISelectState<T> {
   inputFocused?: boolean;
   filteredOptions?: T[];
   placeholder?: string;
+  inputContentFn?: (option: T) => any;
   contentFn?: (option: T) => any;
 }
 

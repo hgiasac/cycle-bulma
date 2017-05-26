@@ -26,7 +26,8 @@ const itemLens = <T>(index: number): Lens<ISearchState<T>, IItemState<T>> => {
           inputting: false,
           isListVisible: false,
           listFocused: false,
-          payload: childState.optionContent,
+          payload: state.inputContentFn ? state.inputContentFn(childState.option)
+            : childState.optionContent,
           selected: state.filteredOptions[index],
         };
       }
