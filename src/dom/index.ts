@@ -81,7 +81,7 @@ function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): 
     if (attrs.isValid) {
       if (attrs.iconSuccess) {
         childNodes.push(span(
-          '.icon.is-right' + (attrs.size || ''),
+          '.icon.is-right' + (attrs.size || '.is-small'),
           i(attrs.iconSuccess),
         ));
       }
@@ -92,7 +92,7 @@ function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): 
     } else if (attrs.isValid === false) {
       if (attrs.iconInvalid) {
         childNodes.push(span(
-          '.icon.is-right' + (attrs.size || ''),
+          '.icon.is-right' + (attrs.size || '.is-small'),
           i(attrs.iconInvalid),
         ));
       }
@@ -211,6 +211,16 @@ export function image(selector: string, properties: any) {
 
 export function getValidClass(isValid?: boolean) {
   return isValid === true ? '.is-success' : (isValid === false ? '.is-danger' : '');
+}
+
+export function getValidIcon(state: IInputAttributeEx): string {
+  return state.isValid === true ? (state.iconSuccess || '.fa.fa-check') :
+    (state.isValid === false ? (state.iconInvalid || '.fa.fa-warning') : '');
+}
+
+export function getValidMesseage(state: IInputAttributeEx): string {
+  return state.isValid === true ? state.successMessage :
+    (state.isValid === false ? state.errorMessage : '');
 }
 
 export {

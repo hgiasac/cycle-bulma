@@ -28,7 +28,12 @@ export default function intent(domSource: DOMSource): Stream<IAction> {
   const blurAction$ = domSource
     .select('.search-input')
     .events('blur')
-    .mapTo({ type: 'blurInput' });
+    .map((ev) => {
+      return {
+        payload: (ev.target as HTMLInputElement).value,
+        type: 'blurInput',
+      };
+    });
 
   return xs.merge(focusAction$, blurAction$, inputAction$, exitAction$);
 }

@@ -29,8 +29,11 @@ function createControlSinks<T>(sources: ISources<T>, attributeName: string, cont
 
         const controlState = newState[attrName];
         if (controlState && typeof controlState === 'object') {
-          newState.isValid = ((controlState.validators && controlState.validators.length > 0)
-            || controlState.isValid !== undefined ? controlState.isValid === true : true);
+          newState.isValid = !controlState.validators || controlState.validators.length === 0 || controlState.isValid;
+          if (!newState.isValid && controlState.isValid === undefined) {
+            newState.isValid = controlState.validators.every((v) => v.type !== 'required');
+          }
+
           if (newState.isValid === false) {
             newState.invalidAttribute = attrName;
             return false;

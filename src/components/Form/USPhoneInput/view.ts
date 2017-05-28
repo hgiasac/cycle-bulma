@@ -1,9 +1,9 @@
 import { VNode } from '@cycle/dom';
 import { Stream } from 'xstream';
 import { input } from '../../../dom';
-import { IState } from './interfaces';
+import { IUSPhoneInputState } from './interfaces';
 
-export default function view(state$: Stream<IState>): Stream<VNode> {
+export default function view(state$: Stream<IUSPhoneInputState>): Stream<VNode> {
 
   return state$.map((state) => {
     if (!state) {
@@ -11,10 +11,9 @@ export default function view(state$: Stream<IState>): Stream<VNode> {
     }
 
     return input('', {
-      attrs: {
+      props: {
         disabled: state.isDisabled,
         placeholder: state.placeholder,
-        type: state.type,
         value: state.payload,
       },
     }, {

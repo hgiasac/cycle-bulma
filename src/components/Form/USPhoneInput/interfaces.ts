@@ -9,20 +9,21 @@ export interface IAction {
   type: string;
 }
 
-export interface IState extends IInputAttributeEx {
-  type?: string;
+export interface IUSPhoneInputState extends IInputAttributeEx {
   attributeName?: string;
   payload?: any;
   placeholder?: string;
   isDisabled?: boolean;
+  invalidPhoneMessage?: string;
   validators?: IValidationRule[];
+
 }
 
-export type Reducer = (state: IState) => IState;
+export type Reducer = (state: IUSPhoneInputState) => IUSPhoneInputState;
 
 export interface ISources {
   DOM: DOMSource;
-  onion: StateSource<IState>;
+  onion: StateSource<IUSPhoneInputState>;
 }
 
 export interface ISinks {

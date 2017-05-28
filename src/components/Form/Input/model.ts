@@ -10,8 +10,8 @@ export function InputState(options?: IState): IState {
 
   if (options) {
     return {
-      ...options,
       ...state,
+      ...options,
     };
   }
 
@@ -21,15 +21,14 @@ export default function model(action$: Stream<IAction>): Stream<Reducer> {
 
   const defaultReducer$ = xs.of((prev: IState): IState => {
 
-    const state: IState = InputState();
-
     if (!prev) {
-      return state;
+      return InputState();
     }
 
     if (typeof prev !== 'object') {
-      state.payload = prev;
-      return state;
+      return InputState({
+        payload: prev,
+      });
     }
 
     if (prev.validators && prev.validators.length > 0) {
