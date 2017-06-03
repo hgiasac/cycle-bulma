@@ -23,7 +23,7 @@ export function renderButtons(properties: IButtonProperties): VNode {
     }
   }
 
-  return div('.field' + (properties.canCancel ? '.is-group' : ''), buttons);
+  return div('.field.buttons' + (properties.canCancel ? '.is-group' : ''), buttons);
 }
 
 function viewDictionary(components: { [key: string]: ControlComponent<any> } , controlDOM: VNode[]): IDOMDictionary {

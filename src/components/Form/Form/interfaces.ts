@@ -5,7 +5,7 @@ import { Stream } from 'xstream';
 import { IValidationRule } from '../../../validator';
 
 export interface IAction {
-  payload?: string;
+  payload?: any;
   type: string;
 }
 
@@ -58,6 +58,7 @@ export interface ISources<T> {
 }
 
 export interface ISinks<T extends IFormState> {
+  action$: Stream<IAction>;
   controlSinks: Array<IControlSinks<T>>;
   DOM: Stream<VNode>;
   onion: Stream<Reducer<T>>;

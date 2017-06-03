@@ -72,6 +72,7 @@ export default function model(action$: Stream<IAction>, options: IPasswordInputO
             ...prev.password,
             isValid,
             errorMessage: options.rangeMessage,
+            payload: ev.payload,
           },
         };
       }

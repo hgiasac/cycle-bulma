@@ -1,9 +1,10 @@
 import isolate from '@cycle/isolate';
 import { Lens } from 'cycle-onionify';
 import xs, { Stream } from 'xstream';
-import {
-  ControlComponent, IControlSinks, IControlState, IDOMDictionary, IFormState,
+import intent from './intent';
+import { ControlComponent, IControlSinks, IControlState, IDOMDictionary, IFormState,
   IProperties, ISinks, ISources, Reducer } from './interfaces';
+import model, { validateForm } from './model';
 import view, { renderButtons } from './view';
 
 function createControlSinks<T>(sources: ISources<T>, attributeName: string, control: ControlComponent<any>) {
@@ -23,24 +24,7 @@ function createControlSinks<T>(sources: ISources<T>, attributeName: string, cont
 
       newState[attributeName] = childState;
 
-      newState.invalidAttribute = '';
-
-      Object.keys(newState).every((attrName) => {
-
-        const controlState = newState[attrName];
-        if (controlState && typeof controlState === 'object') {
-          newState.isValid = !controlState.validators || controlState.validators.length === 0 || controlState.isValid;
-          if (!newState.isValid && controlState.isValid === undefined) {
-            newState.isValid = controlState.validators.every((v) => v.type !== 'required');
-          }
-
-          if (newState.isValid === false) {
-            newState.invalidAttribute = attrName;
-            return false;
-          }
-        }
-        return true;
-      });
+      validateForm(newState);
 
       return newState;
     },
@@ -58,7 +42,9 @@ function Form<T>(sources: ISources<T>, properties: IProperties<T>): ISinks<T> {
   });
 
   const state$ = sources.onion.state$;
-  const reducer$ = xs.merge(
+  const action$ = intent(sources);
+  const parentReducer$ = model(action$);
+  const reducer$ = xs.merge(parentReducer$,
     ...controlSinks.map((s) => s.onion),
   ) as Stream<Reducer<T>>;
   const http$$ = controlSinks.filter((s) => s.HTTP)
@@ -68,6 +54,7 @@ function Form<T>(sources: ISources<T>, properties: IProperties<T>): ISinks<T> {
   const vdom$ = view(state$, controlSinks.map((s) => s.DOM), properties);
 
   return {
+    action$,
     controlSinks,
     DOM: vdom$,
     HTTP: http$,
@@ -85,4 +72,5 @@ export {
   ISources as IFormSources,
   Reducer as FormReducer,
   IDOMDictionary,
+  validateForm,
 };

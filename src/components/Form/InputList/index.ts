@@ -5,9 +5,9 @@ import {
 import isolate from '@cycle/isolate';
 import { Lens } from 'cycle-onionify';
 import xs, { Stream } from 'xstream';
+import { getValidClass } from '../../../dom';
 import { InputState } from '../Input';
 import { IAction, IInputListState, ISinks, ISources, Reducer } from './interfaces';
-
 import List from './List';
 
 export {
@@ -75,7 +75,13 @@ function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
         };
       }
 
-      return prev;
+      return {
+        ...prev,
+        textInput: {
+          ...prev.textInput,
+          isValid: false,
+        },
+      };
     });
 
   return xs.merge(defaultReducer$, inputReducer$, addReducer$);
@@ -87,7 +93,7 @@ function view<T>(state$: Stream<IInputListState<T>>, listDOM$: Stream<VNode>): S
     .map(([state, listDOM]) => {
       return div('', [
         div('.field.is-grouped', [
-          input('.input', {
+          input('.input' + getValidClass(state.textInput.isValid), {
             props: {
               value: state.textInput.payload,
             },
