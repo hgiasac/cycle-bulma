@@ -7,7 +7,7 @@ import { Lens } from 'cycle-onionify';
 import xs, { Stream } from 'xstream';
 import { getValidClass } from '../../../dom';
 import { InputState } from '../Input';
-import { IAction, IInputListState, ISinks, ISources, Reducer } from './interfaces';
+import { IAction, IInputListProperties, IInputListState, ISinks, ISources, Reducer } from './interfaces';
 import List from './List';
 
 export {
@@ -109,7 +109,7 @@ function view<T>(state$: Stream<IInputListState<T>>, listDOM$: Stream<VNode>): S
     });
 }
 
-export function InputList<T>(sources: ISources<T>): ISinks<T> {
+export function InputList<T>(sources: ISources<T>, properties?: IInputListProperties<T>): ISinks<T> {
 
   const identityLens: Lens<IInputListState<T>, IInputListState<T>> = {
     get: (state) => state,
@@ -119,7 +119,7 @@ export function InputList<T>(sources: ISources<T>): ISinks<T> {
   const state$ = sources.onion.state$;
   const action$ = intent(sources.DOM);
   const parentReducer$ = model(action$);
-  const childrenSinks = isolate(List, { onion: identityLens })(sources);
+  const childrenSinks = isolate(List, { onion: identityLens })(sources, properties);
 
   const vdom$ = view(state$, childrenSinks.DOM);
 

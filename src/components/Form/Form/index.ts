@@ -7,7 +7,8 @@ import { ControlComponent, IControlSinks, IControlState, IDOMDictionary, IFormSt
 import model, { validateForm } from './model';
 import view, { renderButtons } from './view';
 
-function createControlSinks<T>(sources: ISources<T>, attributeName: string, control: ControlComponent<any>) {
+function createControlSinks<T>(sources: ISources<T>, attributeName: string,
+                               control: ControlComponent<any>, properties?: any) {
 
   const controlLens: Lens<IFormState, IControlState<any>> = {
     get: (state) => {
@@ -30,15 +31,23 @@ function createControlSinks<T>(sources: ISources<T>, attributeName: string, cont
     },
   };
 
-  return isolate(control, { onion: controlLens })(sources);
+  return isolate(control, { onion: controlLens })(sources, properties);
 }
 
 function Form<T>(sources: ISources<T>, properties: IProperties<T>): ISinks<T> {
 
   const controlSinks: Array<IControlSinks<any>> = Object.keys(properties.components).map((attributeName) => {
-    return typeof properties.components[attributeName] === 'function'
-      ? createControlSinks(sources, attributeName, properties.components[attributeName])
-      : properties.components[attributeName];
+    if (typeof properties.components[attributeName] === 'function') {
+      return createControlSinks(sources, attributeName, properties.components[attributeName]);
+    } else if (properties.components[attributeName].onion) {
+      return properties.components[attributeName];
+    }
+
+    return createControlSinks(
+      sources, attributeName,
+      properties.components[attributeName].component,
+      properties.components[attributeName].properties,
+    );
   });
 
   const state$ = sources.onion.state$;

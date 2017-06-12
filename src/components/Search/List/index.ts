@@ -60,9 +60,9 @@ export default function List<T>(sources: ISources<T>): ISinks<T> {
   const state$ = sources.onion.state$;
 
   const childrenSinks$ = state$.map((state) =>
-    state.filteredOptions.map((_, i) => {
+    state.filteredOptions ? state.filteredOptions.map((_, i) => {
       return isolate(Item, { onion: itemLens(i)})(sources);
-    }),
+    }) : [],
   );
 
   const vdom$ = childrenSinks$

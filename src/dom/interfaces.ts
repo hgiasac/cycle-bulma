@@ -44,4 +44,5 @@ export interface IInputAttributeEx {
   isValid?: boolean;
   iconSuccess?: string;
   iconInvalid?: string;
+  hasValidators?: boolean;
 }

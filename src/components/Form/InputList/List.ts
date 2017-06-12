@@ -1,8 +1,8 @@
-import { div } from '@cycle/dom';
+import { table, tbody, VNode } from '@cycle/dom';
 import isolate from '@cycle/isolate';
 import { Lens, mix, pick } from 'cycle-onionify';
 import xs, { Stream } from 'xstream';
-import { IInputListState, IItemState, ISinks, ISources, Reducer } from './interfaces';
+import { IInputListProperties, IInputListState, IItemState, ISinks, ISources, Reducer } from './interfaces';
 import Item from './Item';
 
 const itemLens = <T>(index: number): Lens<IInputListState<T>, IItemState<T>> => {
@@ -27,19 +27,22 @@ const itemLens = <T>(index: number): Lens<IInputListState<T>, IItemState<T>> => 
 
 };
 
-export default function List<T>(sources: ISources<T>): ISinks<T> {
+export default function List<T>(sources: ISources<T>, properties?: IInputListProperties<T>): ISinks<T> {
   const state$ = sources.onion.state$;
 
   const childrenSinks$ = state$.map((state) =>
     state && state.items ? state.items.map((_, i) => {
-      return isolate(Item, { onion: itemLens(i) })(sources);
+      return isolate(Item, { onion: itemLens(i) })(sources, properties);
     }) : [],
   );
 
   const vdom$ = childrenSinks$
     .compose(pick('DOM'))
     .compose(mix(xs.combine))
-    .map((itemVNodes) => div(itemVNodes));
+    .map((itemVNodes) => properties && properties.listLayout ?
+      properties.listLayout(itemVNodes as any as VNode[]) : table('.table.is-striped', [
+        tbody(itemVNodes),
+      ]));
 
   const childReducer$ = childrenSinks$
     .compose(pick('onion'))

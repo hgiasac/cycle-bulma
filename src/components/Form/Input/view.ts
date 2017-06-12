@@ -1,6 +1,6 @@
 import { VNode } from '@cycle/dom';
 import { Stream } from 'xstream';
-import { input } from '../../../dom';
+import { activeInput } from '../../../dom';
 import { IState } from './interfaces';
 
 export default function view(state$: Stream<IState>): Stream<VNode> {
@@ -10,7 +10,7 @@ export default function view(state$: Stream<IState>): Stream<VNode> {
       return null;
     }
 
-    return input('', {
+    return activeInput(state.className || '', {
       attrs: {
         disabled: state.isDisabled,
         placeholder: state.placeholder,

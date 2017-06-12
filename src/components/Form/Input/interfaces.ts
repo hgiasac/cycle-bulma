@@ -11,6 +11,7 @@ export interface IAction {
 
 export interface IState extends IInputAttributeEx {
   type?: string;
+  className?: string;
   attributeName?: string;
   payload?: any;
   placeholder?: string;

@@ -1,6 +1,6 @@
-import { button, div, DOMSource, span, VNode } from '@cycle/dom';
+import { button, DOMSource, span, td, tr, VNode } from '@cycle/dom';
 import { Stream } from 'xstream';
-import { IAction, IItemSinks, IItemSources, IItemState, ItemReducer } from './interfaces';
+import { IAction, IInputListProperties, IItemSinks, IItemSources, IItemState, ItemReducer } from './interfaces';
 
 function intent(domSource: DOMSource): Stream<IAction> {
 
@@ -22,25 +22,27 @@ function model<T>(action$: Stream<IAction>): Stream<ItemReducer<T>> {
   return deleteReducer$;
 }
 
-function view<T>(state$: Stream<IItemState<T>>): Stream<VNode> {
+function view<T>(state$: Stream<IItemState<T>>, properties?: IInputListProperties<T>): Stream<VNode> {
 
   return state$.map((state) => {
 
-    return div('.columns', [
-      div('.column', [
-        span('', state.content),
-      ]),
-      div('.column.is-1', [button('.delete')]),
+    if (properties && properties.itemLayout) {
+      return properties.itemLayout(state);
+    }
+
+    return tr([
+      td([ span('', state.content) ]),
+      td([ button('.delete') ]),
     ]);
   });
 }
 
-export default function Item<T>(sources: IItemSources<T>): IItemSinks<T> {
+export default function Item<T>(sources: IItemSources<T>, properties?: IInputListProperties<T>): IItemSinks<T> {
 
   const state$ = sources.onion.state$;
   const action$ = intent(sources.DOM);
   const reducer$ = model(action$);
-  const vdom$ = view(state$);
+  const vdom$ = view(state$, properties);
 
   return {
     DOM: vdom$,

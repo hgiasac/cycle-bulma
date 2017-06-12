@@ -51,6 +51,31 @@ export function select<T>(selector: string, attrs: ISelectAttribute<T>, children
   return commonControl(vSelect, attrs, children);
 }
 
+export function activeInput(selector: string,  properties: any, options?: IInputAttributeEx): VNode {
+  const opts = {
+
+    iconSuccess: '.fa.fa-check',
+    iconWarning: '.fa.fa-warning',
+    ...options,
+  };
+
+  return div('', [
+    p('.control.has-icons-right' + (opts.iconLeft ? '.has-icons-left' : ''), [
+      rawInput('.input' + selector, properties),
+      opts.isValid === true ? span('.icon.is-right' + (opts.size || '.is-small'), [
+        i(opts.iconSuccess),
+      ]) : null,
+      opts.isValid === false ? span('.icon.is-right' + (opts.size || '.is-small'), [
+        i(opts.iconWarning),
+      ]) : null,
+    ]),
+    opts.help && (opts.isValid === null || opts.isValid === undefined) ? p('.help', opts.help) : null,
+    opts.isValid === true && opts.successMessage ? p('.help.is-success', opts.successMessage) : null,
+    opts.isValid === false && opts.errorMessage ? p('.help.is-danger', opts.errorMessage) : null,
+
+  ]);
+}
+
 function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): VNode | VNode[] {
 
   const attrs = Object.assign({
@@ -61,7 +86,7 @@ function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): 
 
   const controlClass = '.control'
     + (attrs.iconLeft ? '.has-icons-left' : '')
-    + (((attrs.isValid && attrs.iconSuccess) || (attrs.isValid === false && attrs.iconInvalid))
+    + (attrs.hasValidators || ((attrs.isValid && attrs.iconSuccess) || (attrs.isValid === false && attrs.iconInvalid))
       || attrs.iconRight ? '.has-icons-right' : '');
 
   const childNodes = [

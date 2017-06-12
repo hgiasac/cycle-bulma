@@ -3,6 +3,9 @@ import { StateSource } from 'cycle-onionify';
 import { Stream } from 'xstream';
 import { IInputState } from '../Input';
 
+export type ItemLayout<T> = (state: IItemState<T>) => VNode;
+export type ListLayout<T> = (nodes: VNode[]) => VNode;
+
 export interface IInputListState<T> {
   textInput: IInputState;
   items: Array<IItemState<T>>;
@@ -19,6 +22,11 @@ export interface IAction {
 }
 
 export type Reducer<T> = (prev?: IInputListState<T>) => IInputListState<T>;
+
+export interface IInputListProperties<T> {
+  itemLayout?: ItemLayout<T>;
+  listLayout?: ListLayout<T>;
+}
 
 export interface ISources<T> {
   DOM: DOMSource;

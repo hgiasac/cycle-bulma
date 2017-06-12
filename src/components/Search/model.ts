@@ -31,11 +31,8 @@ export function SearchState<T>(options?: ISearchState<T>): ISearchState<T> {
     options: [],
     payload: '',
     selected: null,
+    ...options,
   };
-
-  if (options) {
-    return Object.assign(state, options);
-  }
 
   return state;
 }
@@ -43,20 +40,7 @@ export function SearchState<T>(options?: ISearchState<T>): ISearchState<T> {
 export default function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
 
   const defaultReducer$ = xs.of((prev?: ISearchState<T>): ISearchState<T> => {
-    const state = Object.assign({
-
-      currentIndex: -1,
-      filterFn: defaultArrayFilter,
-      filteredOptions: [],
-      inputFocused: false,
-      inputting: false,
-      isListVisible: false,
-      listFocused: false,
-      options: [],
-      payload: '',
-
-      selected: null,
-    }, prev || {});
+    const state = SearchState(prev);
 
     return state as any as ISearchState<T>;
   });
