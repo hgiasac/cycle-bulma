@@ -11,7 +11,7 @@ export default function intent<T extends IFormState>(sources: ISources<T>): Stre
         validateForm(state);
         return {
           payload: state.isValid,
-          type: 'onValidate',
+          type: 'onValidated',
         };
       }).take(1),
     ).flatten();

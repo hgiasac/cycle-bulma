@@ -10,7 +10,7 @@ export function defaultArrayFilter<T>(payload: string, item: T, state: ISearchSt
 }
 
 export function defaultFilter<T>(payload: string, state: ISearchState<T>): T[] {
-  const data = payload ? payload.replace(/[\/\"]/g, '') : '';
+  const data = payload ? payload.replace(/[\/\"\\]/g, '') : '';
 
   return state.options.filter((o: T) => state.filterFn(data, o, state));
 }
@@ -53,11 +53,11 @@ export default function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
       return {
         ...prev,
         currentIndex: -1,
+        filteredOptions,
         hoverIndex: -1,
         inputting: true,
         isListVisible: (filteredOptions && filteredOptions.length > 0),
         payload: ev.payload,
-        filteredOptions,
       };
     });
 

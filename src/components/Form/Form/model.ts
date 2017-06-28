@@ -5,7 +5,7 @@ import { IAction, IFormState, Reducer } from './interfaces';
 export default function model<T extends IFormState>(action$: Stream<IAction>): Stream<Reducer<T>> {
 
   const invalidReducer$ = action$
-    .filter((ev) => ev.type === 'onValidate' && !ev.payload)
+    .filter((ev) => ev.type === 'onValidated' && !ev.payload)
     .mapTo((prev): T => {
       return {
         ...prev,
