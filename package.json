@@ -35,6 +35,6 @@
     "mocha": "^3.4.2",
     "snabbdom-selector": "^1.2.0",
     "ts-node": "^3.1.0",
-    "typescript": "^2.3.3"
+    "typescript": "2.3.4"
   }
 }
