@@ -8,7 +8,8 @@
     "max-line-length": {
       "severity": "error",
       "options": 140
-    }
+    },
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"]
   },
   "jsRules": {
     "curly": true

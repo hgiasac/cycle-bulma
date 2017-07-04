@@ -13,5 +13,7 @@ export * from './components/Form/SelectOthers';
 export * from './components/Form/HSelectOthers';
 export * from './components/Form/Autocomplete';
 export * from './components/Form/USPhoneInput';
+export * from './components/Form/Checkbox';
+export * from './components/Form/CheckboxList';
 export * from './components/Form/Form';
 export * from './components/Search';

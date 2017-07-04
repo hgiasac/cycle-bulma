@@ -63,10 +63,10 @@ function Form<T>(sources: ISources<T>, properties: IProperties<T>): ISinks<T> {
   const vdom$ = view(state$, controlSinks.map((s) => s.DOM), properties);
 
   return {
-    action$,
-    controlSinks,
     DOM: vdom$,
     HTTP: http$,
+    action$,
+    controlSinks,
     onion: reducer$,
   };
 }

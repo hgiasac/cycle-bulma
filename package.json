@@ -8,7 +8,9 @@
   "scripts": {
     "build": "tsc",
     "install": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-node": "./node_modules/.bin/mocha 'test/**/*.ts' --compilers ts:ts-node/register",
+    "test": "npm run test-node",
+    "test-ci": "npm run test",
     "prelib": "mkdir -p lib",
     "lib": "tsc",
     "prepublish": "npm run lib"
@@ -23,10 +25,16 @@
     "@cycle/dom": "^17.1.0",
     "@cycle/http": "^13.2.0",
     "@cycle/isolate": "^2.1.0",
+    "@cycle/run": "^3.1.0",
+    "@cycle/time": "^0.8.0",
     "cycle-onionify": "^3.2.0",
     "xstream": "^10.7.0"
   },
   "devDependencies": {
+    "@types/mocha": "^2.2.41",
+    "mocha": "^3.4.2",
+    "snabbdom-selector": "^1.2.0",
+    "ts-node": "^3.1.0",
     "typescript": "^2.3.3"
   }
 }

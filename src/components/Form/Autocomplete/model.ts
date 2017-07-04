@@ -51,11 +51,11 @@ export default function model<T>(action$: Stream<IAction>): Stream<Reducer<T>> {
       return {
         ...prev,
         currentIndex: -1,
+        filteredOptions,
         hoverIndex: -1,
         inputting: true,
         isListVisible: (filteredOptions && filteredOptions.length > 0),
         payload: ev.payload,
-        filteredOptions,
         ...validationResult,
       };
     });

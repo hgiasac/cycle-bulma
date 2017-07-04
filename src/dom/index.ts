@@ -47,6 +47,7 @@ export function select<T>(selector: string, attrs: ISelectAttribute<T>, children
 
   const vSelect = span(selectClass, [
     rawSelect(selector, options),
+    i('.bar'),
   ]);
   return commonControl(vSelect, attrs, children);
 }
@@ -68,6 +69,8 @@ export function activeInput(selector: string,  properties: any, options?: IInput
       opts.isValid === false ? span('.icon.is-right' + (opts.size || '.is-small'), [
         i(opts.iconWarning),
       ]) : null,
+      opts.label ? label('.label', opts.label) : null,
+      i('.bar'),
     ]),
     opts.help && (opts.isValid === null || opts.isValid === undefined) ? p('.help', opts.help) : null,
     opts.isValid === true && opts.successMessage ? p('.help.is-success', opts.successMessage) : null,
@@ -78,9 +81,7 @@ export function activeInput(selector: string,  properties: any, options?: IInput
 
 function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): VNode | VNode[] {
 
-  const attrs = Object.assign({
-    hasContainer: true,
-  }, opts || {});
+  const attrs = { hasContainer: true, ...opts};
 
   const vnodes = [];
 
@@ -164,11 +165,10 @@ function commonControl(vnode: VNode, opts?: IInputAttributeEx, children?: any): 
 
 export function input(selector: string, inputAttrs: any, opts?: IInputAttributeEx, children?: any): VNode | VNode[] {
 
-  const attrs = Object.assign({
+  const attrs = {
     hasContainer: true,
     iconSuccess: '.fa.fa-check',
-    iconWarning: '.fa.fa-warning',
-  }, opts || {});
+    iconWarning: '.fa.fa-warning', ...(opts || {})};
 
   const inputClass = '.input'
     + (attrs.size || '')
